@@ -318,6 +318,18 @@ a[href="#product-zoom"] svg {
 a.zoom-button svg {
     height: 16px !important;
 }
+
+a.zoom-button,
+.zoom-button.button.circle {
+  width: 36px !important;
+  height: 36px !important;
+  min-height: 36px !important;
+  max-height: 36px !important;
+  aspect-ratio: 1 / 1 !important;
+  border-radius: 50% !important;
+  padding: 0 !important;
+  line-height: 36px !important;
+}
 /* ── END ZOOM BUTTON FIX ── */
 
 /* ── HIDE CART ICON (catalog-only mode) ── */
