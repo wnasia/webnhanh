@@ -1,0 +1,370 @@
+/* ===== AnDuc Single Post – v7 (Footer2 as sidebar, title 22) ===== */
+
+/* Container width */
+.single-post .anduc-container{
+  max-width: 1360px;
+  margin: 0 auto;
+  padding: 0 20px;
+  box-sizing: border-box;
+}
+
+/* Two columns: main 860 / side 420 */
+.single-post .anduc-post-layout{
+  display: grid;
+  grid-template-columns: minmax(0, 860px) 420px;
+  gap: 32px;
+  justify-content: center;
+  align-items: start;
+}
+.single-post .anduc-post-main,
+.single-post .anduc-post-side{ width:100%; margin:0; }
+
+/* Fallback for Flatsome default grid */
+.single-post .row{ justify-content:center; }
+.single-post .row .large-9{ flex:0 0 860px; max-width:860px; }
+.single-post .row .large-3.post-sidebar{ flex:0 0 420px; max-width:420px; }
+
+/* Sticky sidebar */
+@media (min-width: 992px){
+  .single-post .anduc-post-side,
+  .single-post .post-sidebar{ position: sticky; top: 100px; }
+}
+
+/* Mobile */
+@media (max-width: 991.98px){
+  .single-post .anduc-post-layout{ grid-template-columns: 1fr; gap: 20px; }
+  .single-post .anduc-post-side,
+  .single-post .post-sidebar{ position: static; }
+}
+
+/* Title requirements: 22px, not uppercase */
+.single-post .anduc-post-title,
+.single-post .entry-title{
+  font-size: 22px !important;
+  line-height: 1.4 !important;
+  text-transform: none !important;
+  letter-spacing: 0 !important;
+  margin: 6px 0 8px !important;
+  font-weight: 700;
+}
+
+/* Meta & content typography */
+.single-post .anduc-post-meta{ display:flex; flex-wrap:wrap; gap:8px; color:#666; font-size:14px; margin-bottom:14px; }
+.single-post .entry-content p{ font-size:15px; line-height:1.8; }
+.single-post .entry-content h2{ font-size:20px; line-height:1.35; margin:24px 0 12px; }
+.single-post .entry-content h3{ font-size:18px; line-height:1.35; margin:20px 0 10px; }
+.single-post .entry-content > *{ max-width:100%; box-sizing:border-box; }
+.single-post .entry-content img{ max-width:100%; height:auto; border-radius:12px; display:block; }
+
+/* Normalize widgets inside footer-2 when used as sidebar */
+.single-post .anduc-post-side .widget{
+  background:#fff; border:1px solid #eee; border-radius:14px;
+  padding:14px 16px; box-shadow:0 2px 10px rgba(0,0,0,.04); margin-bottom:20px;
+}
+.single-post .anduc-post-side .widget .widget-title,
+.single-post .anduc-post-side .widget h3{
+  font-size:16px; font-weight:600; text-transform:uppercase; margin:0 0 12px;
+}
+
+/* Recent posts tidy */
+.single-post .anduc-post-side .widget_recent_entries a,
+.single-post .anduc-post-side .wp-block-latest-posts__list a,
+.single-post .anduc-post-side .post-title,
+.single-post .anduc-post-side .post-title a{
+  font-size:14px; line-height:1.4; font-weight:400; color:#111; text-decoration:none;
+}
+.single-post .anduc-post-side .widget_recent_entries li,
+.single-post .anduc-post-side .wp-block-latest-posts__list li{ margin:0 0 12px; }
+
+.single-post .anduc-post-side .ux-posts__list a{
+  display:grid; grid-template-columns:56px 1fr; gap:8px; align-items:center;
+}
+.single-post .anduc-post-side img.attachment-thumbnail,
+.single-post .anduc-post-side .wp-block-latest-posts__featured-image img{
+  width:56px; height:42px; object-fit:cover; border-radius:8px; border:1px solid #eee;
+}
+
+/* === v7.2 adjustments === */
+/* Equal top spacing for both columns */
+.single-post .anduc-post-main,
+.single-post .anduc-post-side{
+  padding-top: 50px;
+}
+/* Title shouldn't add extra space */
+.single-post .anduc-post-title,
+.single-post .entry-title{
+  margin-top: 0 !important;
+}
+
+/* Meta spacing fine-tune after adding author & views */
+.single-post .anduc-post-meta .sep{
+  opacity: .6; margin: 0 6px;
+}
+
+
+/* === v7.3: Title top = 20px, equal with sidebar; tighter spacing === */
+.single-post .anduc-post-main,
+.single-post .anduc-post-side{
+  padding-top: 20px !important;
+}
+
+/* Title: keep 22px, reduce inner spacing & gap to meta */
+.single-post .anduc-post-title,
+.single-post .entry-title{
+  font-size: 22px !important;
+  line-height: 1.3 !important;   /* tighter */
+  text-transform: none !important;
+  letter-spacing: 0 !important;
+  margin-top: 0 !important;      /* rely on column padding */
+  margin-bottom: 6px !important; /* smaller gap to meta */
+  font-weight: 700;
+}
+
+/* Meta: slightly smaller bottom gap */
+.single-post .anduc-post-meta{ margin-bottom: 10px !important; }
+.single-post .anduc-post-meta .sep{ opacity:.6; margin: 0 6px; }
+
+
+/* ===== v7.4: MOBILE FIXES – only affects single post ===== */
+@media (max-width: 767.98px){
+  /* container padding a bit tighter */
+  .single-post .anduc-container{ padding-left: 12px; padding-right: 12px; }
+
+  /* stack columns cleanly, remove sticky, add spacing between columns */
+  .single-post .anduc-post-layout{ grid-template-columns: 1fr; gap: 16px; }
+  .single-post .anduc-post-side{ position: static !important; margin-top: 8px; }
+  .single-post .anduc-post-main,
+  .single-post .anduc-post-side{ padding-top: 14px !important; }
+
+  /* Title remains 22px but tighten & ensure wrapping */
+  .single-post .anduc-post-title,
+  .single-post .entry-title{
+    font-size: 22px !important;
+    line-height: 1.25 !important;
+    margin: 0 0 6px !important;
+    overflow-wrap: anywhere;
+    word-break: break-word;
+  }
+
+  /* Meta compact + wrap nicely */
+  .single-post .anduc-post-meta{
+    font-size: 13px !important;
+    gap: 6px !important;
+    margin-bottom: 8px !important;
+    flex-wrap: wrap;
+  }
+  .single-post .anduc-post-meta .sep{ margin: 0 4px !important; }
+
+  /* Content spacing */
+  .single-post .entry-content p{ font-size: 15px; line-height: 1.7; }
+  .single-post .entry-content h2{ font-size: 18px; margin: 18px 0 10px; }
+  .single-post .entry-content h3{ font-size: 16px; margin: 14px 0 8px; }
+
+  /* Prevent horizontal scroll from wide elements */
+  .single-post .entry-content, 
+  .single-post .entry-content *{ max-width: 100% !important; box-sizing: border-box; }
+  .single-post .entry-content img{ width: 100% !important; height: auto !important; }
+  .single-post .entry-content table{ display: block; width: 100%; overflow-x: auto; -webkit-overflow-scrolling: touch; }
+  .single-post .entry-content pre,
+  .single-post .entry-content code{ white-space: pre-wrap; word-break: break-word; }
+
+  /* TOC plugins */
+  .single-post .entry-content .ez-toc-container,
+  .single-post .entry-content .toc_container{ width: 100% !important; }
+
+  /* Sidebar widgets on mobile: consistent sizes */
+  .single-post .anduc-post-side .widget{ padding: 12px 14px; margin-bottom: 14px; }
+  .single-post .anduc-post-side .widget .widget-title,
+  .single-post .anduc-post-side .widget h3{ font-size: 15px; margin-bottom: 10px; }
+  .single-post .anduc-post-side .widget_recent_entries a,
+  .single-post .anduc-post-side .wp-block-latest-posts__list a,
+  .single-post .anduc-post-side .post-title,
+  .single-post .anduc-post-side .post-title a{ font-size: 14px; line-height: 1.35; }
+  .single-post .anduc-post-side .ux-posts__list a{ grid-template-columns: 52px 1fr; gap: 8px; }
+  .single-post .anduc-post-side img.attachment-thumbnail,
+  .single-post .anduc-post-side .wp-block-latest-posts__featured-image img{ width: 52px; height: 40px; }
+}
+
+
+/* === Custom: 1px underline under H1 title as requested === */
+.single-post .anduc-post-title,
+.single-post .entry-title{
+  padding-bottom: 8px !important;
+  border-bottom: 1px solid rgba(0,0,0,0.15);
+}
+
+
+/* === Custom: meta color blue & hide dot separators === */
+.single-post .anduc-post-meta,
+.single-post .anduc-post-meta a,
+.single-post .anduc-post-meta .meta-item{
+  color: #0d6efd !important;
+}
+.single-post .anduc-post-meta .sep{ display:none !important; }
+
+
+/* === FIX PATCH (2025-09-19) === */
+.single-post .anduc-post-main,
+.single-post .anduc-post-side{
+  padding-top:50px !important;
+}
+
+.single-post .anduc-post-title,
+.single-post .entry-title{
+  margin-top:0 !important;
+  padding-top:50px !important;
+  padding-bottom:8px !important;
+  border-bottom:1px solid #000 !important;
+}
+
+
+/* === FORCE OVERRIDES (customer request) === */
+.single-post .anduc-post-main,
+.single-post .anduc-post-side{
+  padding-top: 50px !important; /* align with right sidebar */
+}
+
+.single-post .anduc-post-title,
+.single-post .entry-title{
+  padding-bottom: 8px !important;
+  border-bottom: 1px solid #dcdcdc !important; /* 1px underline */
+}
+
+/* Meta blue + no bullets */
+.single-post .anduc-post-meta,
+.single-post .anduc-post-meta a,
+.single-post .anduc-post-meta .meta-item{
+  color:#0d6efd !important;
+}
+.single-post .anduc-post-meta .sep{ display:none !important; }
+
+
+/* === FORCE OVERRIDES v3 === */
+.single-post .anduc-post-main,
+.single-post .anduc-post-side{
+  padding-top: 25px !important; /* user prefers 25px */
+}
+
+.single-post .anduc-post-title,
+.single-post .entry-title{
+  font-size: 28px !important;
+  line-height: 1.3 !important;
+  padding-bottom: 8px !important;
+  border-bottom: 1px solid #dcdcdc !important; /* underline */
+}
+
+
+/* === FORCE OVERRIDES v4 === */
+body, .single-post, .single-post .anduc-post-title, .single-post .entry-title,
+.single-post h1, .single-post h2, .single-post h3, .single-post h4, .single-post h5, .single-post h6,
+.single-post p, .single-post .entry-content, .single-post .anduc-post-meta, .single-post .widget, 
+.single-post .widget-title, .single-post .post-title {
+  font-family: 'SF Pro Text', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif !important;
+}
+
+.single-post .anduc-post-main,
+.single-post .anduc-post-side{
+  padding-top: 15px !important; /* requested */
+}
+
+.single-post .anduc-post-title,
+.single-post .entry-title{
+  font-size: 28px !important;
+  line-height: 1.3 !important;
+  padding-bottom: 8px !important;
+  border-bottom: 1px solid #dcdcdc !important;
+}
+
+
+/* === TYPOGRAPHY: Prefer SF Pro Text on blog & single post === */
+/* Use local SF Pro Text if available (Mac/iOS), fall back to system sans */
+@font-face { font-family: "SF Pro Text"; src: local("SF Pro Text Regular"), local("SF Pro Text"); font-weight: 400; font-style: normal; font-display: swap; }
+@font-face { font-family: "SF Pro Text"; src: local("SF Pro Text Medium"), local("SF Pro Text"); font-weight: 500; font-style: normal; font-display: swap; }
+@font-face { font-family: "SF Pro Text"; src: local("SF Pro Text Semibold"), local("SF Pro Text"); font-weight: 600; font-style: normal; font-display: swap; }
+@font-face { font-family: "SF Pro Text"; src: local("SF Pro Text Bold"), local("SF Pro Text"); font-weight: 700; font-style: normal; font-display: swap; }
+
+.blog,
+.single-post{
+  font-family: "SF Pro Text", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif;
+}
+
+.blog h1, .blog h2, .blog h3, .blog h4, .blog h5, .blog h6,
+.blog .entry-title, .blog .post-title, .blog .widget-title,
+.single-post h1, .single-post h2, .single-post h3, .single-post h4, .single-post h5, .single-post h6,
+.single-post .entry-title, .single-post .anduc-post-title, .single-post .widget-title{
+  font-family: "SF Pro Text", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif !important;
+}
+
+
+/* === Top padding requested: 15px === */
+.single-post .anduc-post-main,
+.single-post .anduc-post-side{ padding-top: 15px !important; }
+
+
+/* === MOBILE HARDENING (layout-breaker fixes) === */
+@media (max-width: 849.98px){
+  /* Ensure the grid collapses cleanly and no fixed widths leak */
+  .single-post .anduc-post-layout,
+  .single-post .anduc-post-content,
+  .single-post .entry-content{
+    max-width: 100% !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
+    overflow-x: hidden !important;
+  }
+
+  /* Any child inside content cannot exceed width */
+  .single-post .entry-content > *,
+  .single-post .entry-content *{
+    max-width: 100% !important;
+    box-sizing: border-box !important;
+  }
+
+  /* Long words/urls */
+  .single-post .entry-content,
+  .single-post .entry-content p,
+  .single-post .entry-content li{
+    overflow-wrap: anywhere !important;
+    word-break: break-word !important;
+  }
+
+  /* Images, iframes, embeds */
+  .single-post .entry-content img,
+  .single-post .entry-content iframe,
+  .single-post .entry-content video,
+  .single-post .entry-content .wp-block-embed__wrapper,
+  .single-post .entry-content .wp-block-image,
+  .single-post .entry-content .wp-block-video{
+    max-width: 100% !important;
+    width: 100% !important;
+    height: auto !important;
+  }
+
+  /* Tables become scrollable blocks to avoid overflow */
+  .single-post .entry-content table{
+    display: block !important;
+    width: 100% !important;
+    overflow-x: auto !important;
+    -webkit-overflow-scrolling: touch;
+  }
+  .single-post .entry-content table td,
+  .single-post .entry-content table th{ white-space: normal !important; }
+
+  /* Code/pre blocks wrap */
+  .single-post .entry-content pre,
+  .single-post .entry-content code{
+    white-space: pre-wrap !important;
+    word-break: break-word !important;
+  }
+
+  /* TOC & misc plugin boxes */
+  #ez-toc-container,
+  .ez-toc-container{
+    max-width: 100% !important;
+    width: 100% !important;
+    overflow: hidden !important;
+  }
+
+  /* Prevent sticky header/padding glitches */
+  .header-wrapper.stuck .header-main{ margin-bottom:0 !important; padding-bottom:0 !important; }
+}

@@ -1,0 +1,68 @@
+/*
+Theme Name: webnhanh
+Description: Thiết Kế WEBSITE ĐẸP
+Author: WEBNHANH
+Template: flatsome
+Text Domain: webnhanh
+Version: 3.0
+*/
+
+/*************** ADD CUSTOM CSS HERE.   ***************/
+
+
+@media only screen and (max-width: 48em) {
+/*************** ADD MOBILE ONLY CSS HERE  ***************/
+
+
+}
+
+
+
+
+/* === An Duc: Single Post meta & title tweaks (2025-09-18) === */
+body.single-post .anduc-post-title{
+  font-size:28px;
+  line-height:1.35;
+  font-weight:700;
+  margin-bottom:10px;
+  word-break:break-word;
+}
+body.single-post .anduc-post-meta{
+  display:flex;
+  flex-wrap:wrap;
+  align-items:center;
+  gap:6px;
+  font-size:14px;
+  color:#555;
+  margin-bottom:16px;
+}
+body.single-post .anduc-post-meta .sep{
+  opacity:.6;
+}
+
+body.single-post .anduc-post-meta .meta-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+}
+body.single-post .anduc-post-meta svg,
+body.single-post .anduc-post-meta .meta-item svg {
+  width: 14px;
+  height: 14px;
+  color: #2E7D32;
+  fill: currentColor;
+  display: inline-block;
+  vertical-align: middle;
+  opacity: 1;
+  flex: 0 0 auto;
+}
+/* Hide default entry-meta to avoid duplication */
+body.single-post .entry-meta,
+body.single-post .post-meta { display: none; }
+@media (max-width: 480px) {
+  body.single-post .anduc-post-title { font-size: 24px; }
+  body.single-post .anduc-post-meta  { gap: 8px; font-size: 13px; }
+  body.single-post .anduc-post-meta .meta-item svg { width: 13px; height: 13px; }
+}
+
+

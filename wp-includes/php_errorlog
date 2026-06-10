@@ -1,0 +1,15 @@
+[02-Sep-2020 15:30:19 CST6CDT] PHP Fatal error:  Uncaught Error: Call to undefined function feed_content_type() in /home/wotown39/public_html/wire-outlet.com/wp-includes/feed-atom-comments.php:8
+Stack trace:
+#0 {main}
+  thrown in /home/wotown39/public_html/wire-outlet.com/wp-includes/feed-atom-comments.php on line 8
+[02-Sep-2020 17:31:34 CST6CDT] PHP Fatal error:  Uncaught Error: Call to undefined function feed_content_type() in /home/wotown39/public_html/wire-outlet.com/wp-includes/feed-atom-comments.php:8
+Stack trace:
+#0 {main}
+  thrown in /home/wotown39/public_html/wire-outlet.com/wp-includes/feed-atom-comments.php on line 8
+[03-Sep-2020 11:52:10 CST6CDT] PHP Fatal error:  Class 'IXR_Server' not found in /home/wotown39/public_html/wire-outlet.com/wp-includes/class-wp-xmlrpc-server.php on line 23
+[03-Sep-2020 20:14:04 CST6CDT] PHP Fatal error:  Class 'IXR_Server' not found in /home/wotown39/public_html/wire-outlet.com/wp-includes/class-wp-xmlrpc-server.php on line 23
+[03-Sep-2020 20:14:10 CST6CDT] PHP Fatal error:  Class 'IXR_Server' not found in /home/wotown39/public_html/wire-outlet.com/wp-includes/class-wp-xmlrpc-server.php on line 23
+[23-Dec-2020 05:37:57 CST6CDT] PHP Fatal error:  Uncaught Error: Call to undefined function _deprecated_file() in /home/wotown39/public_html/wire-outlet.com/wp-includes/class-oembed.php:12
+Stack trace:
+#0 {main}
+  thrown in /home/wotown39/public_html/wire-outlet.com/wp-includes/class-oembed.php on line 12

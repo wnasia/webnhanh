@@ -1,0 +1,87 @@
+[29-Aug-2020 10:08:42 UTC] PHP Parse error:  syntax error, unexpected ':', expecting '{' in /home/wotown39/public_html/wire-outlet.com/wp-content/plugins/woocommerce/woocommerce.php on line 56
+[29-Aug-2020 11:47:15 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function wp_is_auto_update_enabled_for_type() in /home/wotown39/public_html/wire-outlet.com/wp-admin/includes/theme.php:752
+Stack trace:
+#0 /home/wotown39/public_html/wire-outlet.com/wp-content/mu-plugins/health-check-troubleshooting-mode.php(868): wp_prepare_themes_for_js()
+#1 /home/wotown39/public_html/wire-outlet.com/wp-includes/class-wp-hook.php(287): Health_Check_Troubleshooting_MU->health_check_troubleshoot_menu_bar(Object(WP_Admin_Bar))
+#2 /home/wotown39/public_html/wire-outlet.com/wp-includes/class-wp-hook.php(311): WP_Hook->apply_filters(NULL, Array)
+#3 /home/wotown39/public_html/wire-outlet.com/wp-includes/plugin.php(544): WP_Hook->do_action(Array)
+#4 /home/wotown39/public_html/wire-outlet.com/wp-includes/admin-bar.php(95): do_action_ref_array('admin_bar_menu', Array)
+#5 /home/wotown39/public_html/wire-outlet.com/wp-includes/class-wp-hook.php(287): wp_admin_bar_render('')
+#6 /home/wotown39/public_html/wire-outlet.com/wp-includes/class-wp-hook.php(311): WP_Hook->appl in /home/wotown39/public_html/wire-outlet.com/wp-admin/includes/theme.php on line 752
+[29-Aug-2020 11:47:39 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function wp_is_auto_update_enabled_for_type() in /home/wotown39/public_html/wire-outlet.com/wp-admin/includes/theme.php:752
+Stack trace:
+#0 /home/wotown39/public_html/wire-outlet.com/wp-content/mu-plugins/health-check-troubleshooting-mode.php(868): wp_prepare_themes_for_js()
+#1 /home/wotown39/public_html/wire-outlet.com/wp-includes/class-wp-hook.php(287): Health_Check_Troubleshooting_MU->health_check_troubleshoot_menu_bar(Object(WP_Admin_Bar))
+#2 /home/wotown39/public_html/wire-outlet.com/wp-includes/class-wp-hook.php(311): WP_Hook->apply_filters(NULL, Array)
+#3 /home/wotown39/public_html/wire-outlet.com/wp-includes/plugin.php(544): WP_Hook->do_action(Array)
+#4 /home/wotown39/public_html/wire-outlet.com/wp-includes/admin-bar.php(95): do_action_ref_array('admin_bar_menu', Array)
+#5 /home/wotown39/public_html/wire-outlet.com/wp-includes/class-wp-hook.php(287): wp_admin_bar_render('')
+#6 /home/wotown39/public_html/wire-outlet.com/wp-includes/class-wp-hook.php(311): WP_Hook->appl in /home/wotown39/public_html/wire-outlet.com/wp-admin/includes/theme.php on line 752
+[29-Aug-2020 11:47:42 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function wp_is_auto_update_enabled_for_type() in /home/wotown39/public_html/wire-outlet.com/wp-admin/includes/theme.php:752
+Stack trace:
+#0 /home/wotown39/public_html/wire-outlet.com/wp-content/mu-plugins/health-check-troubleshooting-mode.php(868): wp_prepare_themes_for_js()
+#1 /home/wotown39/public_html/wire-outlet.com/wp-includes/class-wp-hook.php(287): Health_Check_Troubleshooting_MU->health_check_troubleshoot_menu_bar(Object(WP_Admin_Bar))
+#2 /home/wotown39/public_html/wire-outlet.com/wp-includes/class-wp-hook.php(311): WP_Hook->apply_filters(NULL, Array)
+#3 /home/wotown39/public_html/wire-outlet.com/wp-includes/plugin.php(544): WP_Hook->do_action(Array)
+#4 /home/wotown39/public_html/wire-outlet.com/wp-includes/admin-bar.php(95): do_action_ref_array('admin_bar_menu', Array)
+#5 /home/wotown39/public_html/wire-outlet.com/wp-includes/class-wp-hook.php(287): wp_admin_bar_render('')
+#6 /home/wotown39/public_html/wire-outlet.com/wp-includes/class-wp-hook.php(311): WP_Hook->appl in /home/wotown39/public_html/wire-outlet.com/wp-admin/includes/theme.php on line 752
+[29-Aug-2020 11:49:49 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function wp_is_auto_update_enabled_for_type() in /home/wotown39/public_html/wire-outlet.com/wp-admin/includes/theme.php:752
+Stack trace:
+#0 /home/wotown39/public_html/wire-outlet.com/wp-content/mu-plugins/health-check-troubleshooting-mode.php(868): wp_prepare_themes_for_js()
+#1 /home/wotown39/public_html/wire-outlet.com/wp-includes/class-wp-hook.php(287): Health_Check_Troubleshooting_MU->health_check_troubleshoot_menu_bar(Object(WP_Admin_Bar))
+#2 /home/wotown39/public_html/wire-outlet.com/wp-includes/class-wp-hook.php(311): WP_Hook->apply_filters(NULL, Array)
+#3 /home/wotown39/public_html/wire-outlet.com/wp-includes/plugin.php(544): WP_Hook->do_action(Array)
+#4 /home/wotown39/public_html/wire-outlet.com/wp-includes/admin-bar.php(95): do_action_ref_array('admin_bar_menu', Array)
+#5 /home/wotown39/public_html/wire-outlet.com/wp-includes/class-wp-hook.php(287): wp_admin_bar_render('')
+#6 /home/wotown39/public_html/wire-outlet.com/wp-includes/class-wp-hook.php(311): WP_Hook->appl in /home/wotown39/public_html/wire-outlet.com/wp-admin/includes/theme.php on line 752
+[29-Aug-2020 11:49:55 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function wp_is_auto_update_enabled_for_type() in /home/wotown39/public_html/wire-outlet.com/wp-admin/includes/theme.php:752
+Stack trace:
+#0 /home/wotown39/public_html/wire-outlet.com/wp-content/mu-plugins/health-check-troubleshooting-mode.php(868): wp_prepare_themes_for_js()
+#1 /home/wotown39/public_html/wire-outlet.com/wp-includes/class-wp-hook.php(287): Health_Check_Troubleshooting_MU->health_check_troubleshoot_menu_bar(Object(WP_Admin_Bar))
+#2 /home/wotown39/public_html/wire-outlet.com/wp-includes/class-wp-hook.php(311): WP_Hook->apply_filters(NULL, Array)
+#3 /home/wotown39/public_html/wire-outlet.com/wp-includes/plugin.php(544): WP_Hook->do_action(Array)
+#4 /home/wotown39/public_html/wire-outlet.com/wp-includes/admin-bar.php(95): do_action_ref_array('admin_bar_menu', Array)
+#5 /home/wotown39/public_html/wire-outlet.com/wp-includes/class-wp-hook.php(287): wp_admin_bar_render('')
+#6 /home/wotown39/public_html/wire-outlet.com/wp-includes/class-wp-hook.php(311): WP_Hook->appl in /home/wotown39/public_html/wire-outlet.com/wp-admin/includes/theme.php on line 752
+[29-Aug-2020 11:50:23 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function wp_is_auto_update_enabled_for_type() in /home/wotown39/public_html/wire-outlet.com/wp-admin/includes/theme.php:752
+Stack trace:
+#0 /home/wotown39/public_html/wire-outlet.com/wp-content/mu-plugins/health-check-troubleshooting-mode.php(868): wp_prepare_themes_for_js()
+#1 /home/wotown39/public_html/wire-outlet.com/wp-includes/class-wp-hook.php(287): Health_Check_Troubleshooting_MU->health_check_troubleshoot_menu_bar(Object(WP_Admin_Bar))
+#2 /home/wotown39/public_html/wire-outlet.com/wp-includes/class-wp-hook.php(311): WP_Hook->apply_filters(NULL, Array)
+#3 /home/wotown39/public_html/wire-outlet.com/wp-includes/plugin.php(544): WP_Hook->do_action(Array)
+#4 /home/wotown39/public_html/wire-outlet.com/wp-includes/admin-bar.php(95): do_action_ref_array('admin_bar_menu', Array)
+#5 /home/wotown39/public_html/wire-outlet.com/wp-includes/class-wp-hook.php(287): wp_admin_bar_render('')
+#6 /home/wotown39/public_html/wire-outlet.com/wp-includes/class-wp-hook.php(311): WP_Hook->appl in /home/wotown39/public_html/wire-outlet.com/wp-admin/includes/theme.php on line 752
+[29-Aug-2020 11:51:49 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function wp_is_auto_update_enabled_for_type() in /home/wotown39/public_html/wire-outlet.com/wp-admin/includes/theme.php:752
+Stack trace:
+#0 /home/wotown39/public_html/wire-outlet.com/wp-content/mu-plugins/health-check-troubleshooting-mode.php(868): wp_prepare_themes_for_js()
+#1 /home/wotown39/public_html/wire-outlet.com/wp-includes/class-wp-hook.php(287): Health_Check_Troubleshooting_MU->health_check_troubleshoot_menu_bar(Object(WP_Admin_Bar))
+#2 /home/wotown39/public_html/wire-outlet.com/wp-includes/class-wp-hook.php(311): WP_Hook->apply_filters(NULL, Array)
+#3 /home/wotown39/public_html/wire-outlet.com/wp-includes/plugin.php(544): WP_Hook->do_action(Array)
+#4 /home/wotown39/public_html/wire-outlet.com/wp-includes/admin-bar.php(95): do_action_ref_array('admin_bar_menu', Array)
+#5 /home/wotown39/public_html/wire-outlet.com/wp-includes/class-wp-hook.php(287): wp_admin_bar_render('')
+#6 /home/wotown39/public_html/wire-outlet.com/wp-includes/class-wp-hook.php(311): WP_Hook->appl in /home/wotown39/public_html/wire-outlet.com/wp-admin/includes/theme.php on line 752
+[29-Aug-2020 11:51:58 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function wp_is_auto_update_enabled_for_type() in /home/wotown39/public_html/wire-outlet.com/wp-admin/includes/theme.php:752
+Stack trace:
+#0 /home/wotown39/public_html/wire-outlet.com/wp-content/mu-plugins/health-check-troubleshooting-mode.php(868): wp_prepare_themes_for_js()
+#1 /home/wotown39/public_html/wire-outlet.com/wp-includes/class-wp-hook.php(287): Health_Check_Troubleshooting_MU->health_check_troubleshoot_menu_bar(Object(WP_Admin_Bar))
+#2 /home/wotown39/public_html/wire-outlet.com/wp-includes/class-wp-hook.php(311): WP_Hook->apply_filters(NULL, Array)
+#3 /home/wotown39/public_html/wire-outlet.com/wp-includes/plugin.php(544): WP_Hook->do_action(Array)
+#4 /home/wotown39/public_html/wire-outlet.com/wp-includes/admin-bar.php(95): do_action_ref_array('admin_bar_menu', Array)
+#5 /home/wotown39/public_html/wire-outlet.com/wp-includes/class-wp-hook.php(287): wp_admin_bar_render('')
+#6 /home/wotown39/public_html/wire-outlet.com/wp-includes/class-wp-hook.php(311): WP_Hook->appl in /home/wotown39/public_html/wire-outlet.com/wp-admin/includes/theme.php on line 752
+[20-Apr-2021 05:49:00 UTC] PHP Parse error:  syntax error, unexpected '<', expecting end of file in /home/customer/www/wire-outlet.com/public_html/wp-content/plugins/woo-lucky-wheel/frontend/frontend.php on line 1372
+[20-Apr-2021 05:54:33 UTC] PHP Parse error:  syntax error, unexpected '<', expecting end of file in /home/customer/www/wire-outlet.com/public_html/wp-content/plugins/woo-lucky-wheel/frontend/frontend.php on line 1372
+[20-Apr-2021 05:55:09 UTC] PHP Parse error:  syntax error, unexpected '<', expecting end of file in /home/customer/www/wire-outlet.com/public_html/wp-content/plugins/woo-lucky-wheel/frontend/frontend.php on line 1372
+[20-Apr-2021 05:56:07 UTC] PHP Parse error:  syntax error, unexpected '<', expecting end of file in /home/customer/www/wire-outlet.com/public_html/wp-content/plugins/woo-lucky-wheel/frontend/frontend.php on line 1372
+[20-Apr-2021 05:56:15 UTC] PHP Parse error:  syntax error, unexpected '<', expecting end of file in /home/customer/www/wire-outlet.com/public_html/wp-content/plugins/woo-lucky-wheel/frontend/frontend.php on line 1372
+[20-Apr-2021 05:56:54 UTC] PHP Parse error:  syntax error, unexpected '<', expecting end of file in /home/customer/www/wire-outlet.com/public_html/wp-content/plugins/woo-lucky-wheel/frontend/frontend.php on line 1372
+[20-Apr-2021 05:58:11 UTC] PHP Parse error:  syntax error, unexpected '<', expecting end of file in /home/customer/www/wire-outlet.com/public_html/wp-content/plugins/woo-lucky-wheel/frontend/frontend.php on line 1372
+[20-Apr-2021 06:13:33 UTC] PHP Parse error:  syntax error, unexpected '<' in /home/customer/www/wire-outlet.com/public_html/wp-content/plugins/woo-lucky-wheel/frontend/frontend.php on line 376
+[20-Apr-2021 06:13:47 UTC] PHP Parse error:  syntax error, unexpected '<' in /home/customer/www/wire-outlet.com/public_html/wp-content/plugins/woo-lucky-wheel/frontend/frontend.php on line 376
+[20-Apr-2021 06:15:11 UTC] PHP Parse error:  syntax error, unexpected '<' in /home/customer/www/wire-outlet.com/public_html/wp-content/plugins/woo-lucky-wheel/frontend/frontend.php on line 376
+[20-Apr-2021 06:20:08 UTC] PHP Parse error:  syntax error, unexpected '<' in /home/customer/www/wire-outlet.com/public_html/wp-content/plugins/woo-lucky-wheel/frontend/frontend.php on line 376
+[20-Apr-2021 06:20:19 UTC] PHP Parse error:  syntax error, unexpected '<' in /home/customer/www/wire-outlet.com/public_html/wp-content/plugins/woo-lucky-wheel/frontend/frontend.php on line 376
+[20-Apr-2021 06:27:38 UTC] PHP Parse error:  syntax error, unexpected '<' in /home/customer/www/wire-outlet.com/public_html/wp-content/plugins/woo-lucky-wheel/frontend/frontend.php on line 376
+[29-May-2021 02:41:34 UTC] PHP Warning:  A non-numeric value encountered in /home/customer/www/wire-outlet.com/public_html/wp-content/plugins/woocommerce/includes/wc-product-functions.php on line 904

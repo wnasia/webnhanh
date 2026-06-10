@@ -1,0 +1,336 @@
+/* ================================================
+   NOVAFOOD RESPONSIVE — Web Nhanh Child Theme
+   Breakpoints:
+   - xs: 0–575px      (mobile portrait)
+   - sm: 576–767px    (mobile landscape)
+   - md: 768–1023px   (tablet)
+   - lg: 1024–1199px  (small desktop)
+   - xl: 1200px+      (desktop)
+================================================ */
+
+/* ── GLOBAL: prevent horizontal overflow ── */
+html, body {
+  overflow-x: hidden;
+  max-width: 100%;
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+img, video, iframe, embed, object, svg {
+  max-width: 100%;
+  height: auto;
+}
+
+/* ── TYPOGRAPHY SCALE (mobile) ── */
+@media (max-width: 575px) {
+  body { font-size: 15px; line-height: 1.65; }
+  h1   { font-size: clamp(1.4rem, 5vw, 1.9rem); }
+  h2   { font-size: clamp(1.2rem, 4.5vw, 1.6rem); }
+  h3   { font-size: clamp(1.05rem, 3.5vw, 1.35rem); }
+  h4   { font-size: clamp(1rem, 3vw, 1.15rem); }
+}
+
+/* ── TOUCH TARGETS ── */
+@media (max-width: 767px) {
+  /* Exclude .circle buttons — they need equal W×H, not min-height stretch */
+  a.button:not(.circle), .button:not(.circle), button:not(.circle),
+  input[type="submit"], input[type="button"],
+  .wn-btn, .wn-btn-blue, .wn-btn-orange {
+    min-height: 44px;
+    min-width: 44px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  input[type="text"],
+  input[type="email"],
+  input[type="tel"],
+  input[type="number"],
+  input[type="search"],
+  textarea, select {
+    font-size: 16px !important; /* prevents iOS zoom-on-focus */
+    min-height: 44px;
+    padding: 10px 12px !important;
+  }
+}
+
+/* ── CONTAINERS & ROWS ── */
+@media (max-width: 575px) {
+  .container { padding-left: 16px !important; padding-right: 16px !important; }
+}
+
+/* Flatsome negative-margin row fix — prevents horizontal scroll */
+@media (max-width: 575px) {
+  .row { margin-left: 0 !important; margin-right: 0 !important; overflow: hidden; }
+}
+
+/* ── NAVIGATION ── */
+@media (max-width: 767px) {
+  .nav-bar .logo,
+  .header-main .logo { max-width: 140px; }
+
+  .header-main .header-nav { display: none; } /* Flatsome handles mobile nav via .hide-for-medium; target only desktop nav */
+}
+
+/* ── BANNERS ── */
+@media (max-width: 575px) {
+  .banner { min-height: auto !important; }
+  .banner-layers { padding: 20px 16px !important; }
+  .banner-inner { padding: 0 !important; }
+
+  /* Text in banners must not overflow */
+  .banner-layers h1,
+  .banner-layers h2,
+  .banner-layers p {
+    white-space: normal !important;
+    word-break: break-word;
+    overflow-wrap: anywhere;
+  }
+}
+
+/* ── CUSTOM WN-PROCESS SECTION ── */
+@media (max-width: 767px) {
+  .wn-process-section { padding: 20px 16px !important; }
+  .wn-process-inner {
+    flex-direction: column !important;
+    align-items: center;
+  }
+  .wn-process-col,
+  .wn-process-col-steps,
+  .wn-process-col-image {
+    width: 100% !important;
+    max-width: 100% !important;
+    flex: 0 0 100% !important;
+    margin-bottom: 20px;
+  }
+  .wn-process-list { padding-left: 0 !important; }
+  .wn-process-item { margin-bottom: 14px; }
+  .wn-process-title { font-size: 1rem !important; }
+  .wn-process-body { font-size: 0.9rem !important; }
+}
+
+/* ── CUSTOM FAQ SECTION ── */
+@media (max-width: 575px) {
+  .faq-webnhanh-section { padding: 20px 12px !important; }
+  .faq-webnhanh-container { padding: 0 !important; }
+  .faq-webnhanh-title { font-size: 1.1rem !important; }
+  .faq-webnhanh-question { font-size: 0.9rem !important; padding: 12px 14px !important; }
+  .faq-webnhanh-answer { font-size: 0.875rem !important; padding: 10px 14px !important; }
+  .faq-webnhanh-item { margin-bottom: 8px; }
+}
+
+/* ── BUTTONS ── */
+@media (max-width: 575px) {
+  .wn-btn-group {
+    flex-direction: column !important;
+    align-items: stretch !important;
+    gap: 10px !important;
+  }
+  .wn-btn, .wn-btn-blue, .wn-btn-orange {
+    width: 100% !important;
+    text-align: center !important;
+    padding: 12px 16px !important;
+    font-size: 0.9rem !important;
+  }
+}
+
+/* ── BOX / CARD GRID ── */
+@media (max-width: 575px) {
+  .box-blog-post,
+  .box { margin-bottom: 16px; }
+
+  .box-image img { width: 100% !important; height: auto !important; }
+}
+
+/* ── TESTIMONIAL SLIDER ── */
+@media (max-width: 575px) {
+  .testimonial-slider-flatsome { padding: 0 8px !important; }
+  .testimonial-item { padding: 16px 12px !important; }
+}
+
+/* ── FOOTER ── */
+@media (max-width: 767px) {
+  .footer-widgets .col { width: 100% !important; flex: 0 0 100% !important; max-width: 100% !important; }
+  .absolute-footer { text-align: center; }
+  .absolute-footer .col { flex-direction: column; gap: 8px; }
+}
+
+/* ── TABLES (overflow scrollable) ── */
+@media (max-width: 767px) {
+  table {
+    display: block;
+    width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+}
+
+/* ── IMAGES ── */
+@media (max-width: 767px) {
+  .wp-post-image,
+  .attachment-full,
+  .wp-block-image img {
+    width: 100% !important;
+    height: auto !important;
+  }
+}
+
+/* ── SINGLE PAGE / CONTENT AREA ── */
+@media (max-width: 767px) {
+  .content-area,
+  #primary {
+    width: 100% !important;
+    float: none !important;
+    padding: 0 !important;
+  }
+
+  .sidebar, #secondary {
+    width: 100% !important;
+    float: none !important;
+    margin-top: 24px !important;
+  }
+
+  /* Prevent any inline-styled content from overflowing */
+  .entry-content,
+  .entry-content * {
+    max-width: 100% !important;
+    box-sizing: border-box !important;
+    white-space: normal !important;
+  }
+
+  .entry-content pre,
+  .entry-content code {
+    white-space: pre-wrap !important;
+    word-break: break-word !important;
+  }
+}
+
+/* ── STICKY HEADER ── */
+@media (max-width: 767px) {
+  .header-wrapper.stuck .header-main {
+    padding-top: 4px !important;
+    padding-bottom: 4px !important;
+  }
+}
+
+/* ── PREVENT NOWRAP OVERFLOW (inline style overrides) ── */
+@media (max-width: 575px) {
+  [style*="white-space:nowrap"],
+  [style*="white-space: nowrap"] {
+    white-space: normal !important;
+    overflow-wrap: anywhere !important;
+    word-break: break-word !important;
+  }
+}
+
+/* ── CTA BUTTON CHILD COMPONENTS ── */
+@media (max-width: 575px) {
+  .cta-container-v4 {
+    padding: 20px 12px !important;
+  }
+  .cta-child-buttons-v4 {
+    flex-direction: column !important;
+    gap: 10px !important;
+  }
+  .cta-button-child-v4 {
+    width: 100% !important;
+    text-align: center !important;
+  }
+}
+
+/* ── SWIPER / SLIDERS ── */
+@media (max-width: 575px) {
+  .swiper-slide { padding: 0 8px !important; }
+}
+
+/* ── ZALO & SOCIAL FLOAT BUTTONS ── */
+@media (max-width: 575px) {
+  .zalo, [class*="zalo"] {
+    bottom: 70px !important; /* clear mobile nav bars */
+  }
+}
+
+/* ── MEDIUM (tablet) TWEAKS ── */
+@media (min-width: 576px) and (max-width: 767px) {
+  .banner-layers h1,
+  .banner-layers h2 { font-size: clamp(1.2rem, 4vw, 1.8rem) !important; }
+
+  .wn-process-col,
+  .wn-process-col-steps {
+    width: 100% !important;
+    flex: 0 0 100% !important;
+  }
+}
+
+/* ── TABLET (768–1023) TWEAKS ── */
+@media (min-width: 768px) and (max-width: 1023px) {
+  .wn-process-inner { flex-wrap: wrap; }
+  .wn-process-col   { flex: 0 0 50%; max-width: 50%; }
+}
+
+/* ── ZOOM BUTTON FIX (Flatsome .button.circle.icon) ── */
+/*
+ * Flatsome's .button.circle.icon zoom button gets squished by the
+ * touch-target min-height rule. Force perfect circle at all viewports.
+ */
+a.zoom-button,
+a[href="#product-zoom"],
+.button.circle.icon,
+.button.circle {
+    width: 36px !important;
+    height: 36px !important;
+    min-width: 36px !important;
+    min-height: 36px !important;
+    max-width: 36px !important;
+    max-height: 36px !important;
+    padding: 0 !important;
+    border-radius: 50% !important;
+    aspect-ratio: 1 / 1 !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    flex-shrink: 0 !important;
+    line-height: 1 !important;
+    overflow: hidden !important;
+}
+
+/* Icon inside zoom button — fixed size, no stretch */
+a.zoom-button i,
+a[href="#product-zoom"] i,
+.button.circle.icon i,
+a.zoom-button svg,
+a[href="#product-zoom"] svg {
+    font-size: 16px !important;
+    width: 16px !important;
+    height: 16px !important;
+    line-height: 1 !important;
+    display: block !important;
+    flex-shrink: 0 !important;
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+/* Also neutralise the global height:auto on svg inside circle buttons */
+.button.circle svg,
+a.zoom-button svg {
+    height: 16px !important;
+}
+/* ── END ZOOM BUTTON FIX ── */
+
+/* ── HIDE CART ICON (catalog-only mode) ── */
+.header-cart,
+.cart-icon,
+.wc-cart-count,
+a[href*="/cart"],
+a[href*="gio-hang"],
+.nav-cart,
+li.wc-cart,
+#cart-btn,
+[class*="cart-icon"],
+[class*="header-cart"],
+.flatsome-cart {
+    display: none !important;
+}

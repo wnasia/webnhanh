@@ -1,0 +1,37 @@
+User-agent: *
+
+# --- Core / hệ thống ---
+Disallow: /wp-admin/
+Allow: /wp-admin/admin-ajax.php
+Allow: /wp-content/litespeed/
+Disallow: /wp-login.php*
+Disallow: /readme.html
+Disallow: /license.txt
+Disallow: /cgi-bin/
+Disallow: /cdn-cgi/
+Disallow: /refer/
+Disallow: /component/*
+
+# --- Chặn các query rác ---
+Disallow: *?replytocom
+Disallow: *utm_*
+Disallow: *fbclid=*
+Disallow: *gclid=*
+Disallow: *ref=*
+Disallow: *source=*
+Disallow: *campaign=*
+
+# --- URL mã hóa / ký tự lạ ---
+Disallow: /*%*
+
+# --- File & dữ liệu không cần SEO ---
+Disallow: /*.php$
+Disallow: /*.cgi$
+Disallow: /*.zip$
+Disallow: /*.rar$
+Disallow: /*.7z$
+Disallow: /*.sql$
+Disallow: /*.bak$
+
+# --- Sơ đồ website ---
+Sitemap: https://webnhanh.asia/sitemap_index.xml

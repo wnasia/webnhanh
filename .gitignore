@@ -1,0 +1,13 @@
+wp-config.php
+.htaccess
+wp-content/uploads/
+wp-content/cache/
+wp-content/upgrade/
+wp-content/backup*/
+wp-content/updraft/
+*.sql
+*.zip
+*.tar.gz
+deploy_tmp/
+.DS_Store
+Thumbs.db
