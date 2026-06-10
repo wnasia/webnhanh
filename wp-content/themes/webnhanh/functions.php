@@ -186,6 +186,11 @@ add_action('do_feed_atom', 'disable_all_feeds', 1);
 add_action('do_feed_rss2_comments', 'disable_all_feeds', 1);
 add_action('do_feed_atom_comments', 'disable_all_feeds', 1);
 
+// Load parent theme (Flatsome) stylesheet
+add_action('wp_enqueue_scripts', function() {
+    wp_enqueue_style('parent-style', get_template_directory_uri() . '/style.css');
+}, 5);
+
 function webnhanh_add_google_fonts() {
     wp_enqueue_style(
         'webnhanh-google-fonts',
