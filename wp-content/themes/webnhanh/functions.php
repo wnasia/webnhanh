@@ -420,4 +420,25 @@ add_filter('litespeed_optm_ucss_whitelist', function($list) {
     return $list;
 });
 
+add_action('wp_head', function() {
+    echo '<style id="zoom-button-fix">
+a.zoom-button.button.is-outline.circle.icon,
+.zoom-button.button.circle.icon,
+a[href="#product-zoom"] {
+    width: 36px !important;
+    height: 36px !important;
+    min-height: 36px !important;
+    max-height: 36px !important;
+    line-height: 36px !important;
+    padding: 0 !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    border-radius: 50% !important;
+    overflow: hidden !important;
+    box-sizing: border-box !important;
+}
+</style>';
+}, 999);
+
 
