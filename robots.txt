@@ -34,4 +34,4 @@ Disallow: /*.sql$
 Disallow: /*.bak$
 
 # --- Sơ đồ website ---
-Sitemap: https://webnhanh.asia/sitemap_index.xml
+Sitemap: https://webnhanh.net/sitemap_index.xml

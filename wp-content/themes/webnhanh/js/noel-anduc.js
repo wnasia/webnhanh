@@ -3,7 +3,7 @@
   const TOGGLE_ID = 'anduc-noel-toggle';
 
   // Nhạc Noel – file jingle bells trên WebNhanh
-  const AUDIO_SRC = 'https://webnhanh.asia/wp-content/uploads/2025/12/jingle-bells.mp3';
+  const AUDIO_SRC = 'https://webnhanh.net/wp-content/uploads/2025/12/jingle-bells.mp3';
 
   let audio = null;
 

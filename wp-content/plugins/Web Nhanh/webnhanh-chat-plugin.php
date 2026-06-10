@@ -1,7 +1,7 @@
 <?php
 /**
  * Plugin Name:       Tiện ích Chat
- * Plugin URI:        https://www.webnhanh.asia/
+ * Plugin URI:        https://www.webnhanh.net/
  * Description:       Tiện ích chat zalo, phone, không background – style tối giản
  * Version:           1.5
  * Author:            Web Nhanh
@@ -23,7 +23,7 @@ function final_cta_buttons_html_v4() {
                 <i class="fa-solid fa-phone"></i>
             </a>
             <a href="<?php echo esc_url($zalo_link); ?>" class="cta-button-child-v4 zalo" target="_blank" rel="nofollow" title="Chat Zalo">
-                <img src="https://webnhanh.asia/wp-content/uploads/2025/07/zalo-webnhanh.png" alt="Zalo">
+                <img src="https://webnhanh.net/wp-content/uploads/2025/07/zalo-webnhanh.png" alt="Zalo">
             </a>
         </div>
 

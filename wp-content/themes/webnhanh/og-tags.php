@@ -15,7 +15,7 @@
  * ========================= */
 if ( ! defined('WEBNHANH_OG_DEFAULT_IMAGE') ) {
     // Ảnh fallback 1200x630 (bạn đã cung cấp)
-    define('WEBNHANH_OG_DEFAULT_IMAGE', 'https://webnhanh.asia/wp-content/uploads/2025/10/Thiet-ke-web-nhanh.png');
+    define('WEBNHANH_OG_DEFAULT_IMAGE', 'https://webnhanh.net/wp-content/uploads/2025/10/Thiet-ke-web-nhanh.png');
 }
 if ( ! defined('WEBNHANH_OG_LOCALE') ) {
     define('WEBNHANH_OG_LOCALE', 'vi_VN');

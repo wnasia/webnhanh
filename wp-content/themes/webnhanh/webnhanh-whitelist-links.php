@@ -4,7 +4,7 @@
  * WEBNHANH WHITELIST LINKS (FULL VERSION)
  * ---------------------------------------------------------
  * ✅ Giữ nofollow mặc định, nhưng FOLLOW cho domain uy tín & hệ sinh thái
- * ✅ Dành cho WebNhanh.asia – Dịch vụ thiết kế web, Google Ads, Facebook Ads
+ * ✅ Dành cho webnhanh.net – Dịch vụ thiết kế web, Google Ads, Facebook Ads
  * =========================================================
  */
 
@@ -110,7 +110,7 @@ if (!function_exists('webnhanh_whitelist_nofollow')) {
          */
         $ecosystem_domains = array(
             // Web chính
-            'webnhanh.asia',
+            'webnhanh.net',
 
             // Khách hàng (portfolio / case study)
             'mauweb.asia', 'goodesign.vn', 'yensaoyangbay.vn',
