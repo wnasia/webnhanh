@@ -2,6 +2,7 @@ wp-config.php
 .htaccess
 wp-content/uploads/
 wp-content/cache/
+wp-content/litespeed/
 wp-content/upgrade/
 wp-content/backup*/
 wp-content/updraft/

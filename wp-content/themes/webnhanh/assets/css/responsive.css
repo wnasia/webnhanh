@@ -277,8 +277,10 @@ img, video, iframe, embed, object, svg {
  * touch-target min-height rule. Force perfect circle at all viewports.
  */
 a.zoom-button,
+a.zoom-button.button.is-outline.circle.icon,
 a[href="#product-zoom"],
 .button.circle.icon,
+.zoom-button.button.circle.icon,
 .button.circle {
     width: 36px !important;
     height: 36px !important;
@@ -293,8 +295,9 @@ a[href="#product-zoom"],
     align-items: center !important;
     justify-content: center !important;
     flex-shrink: 0 !important;
-    line-height: 1 !important;
+    line-height: 36px !important;
     overflow: hidden !important;
+    box-sizing: border-box !important;
 }
 
 /* Icon inside zoom button — fixed size, no stretch */
@@ -302,7 +305,8 @@ a.zoom-button i,
 a[href="#product-zoom"] i,
 .button.circle.icon i,
 a.zoom-button svg,
-a[href="#product-zoom"] svg {
+a[href="#product-zoom"] svg,
+.button.circle svg {
     font-size: 16px !important;
     width: 16px !important;
     height: 16px !important;
@@ -311,24 +315,6 @@ a[href="#product-zoom"] svg {
     flex-shrink: 0 !important;
     margin: 0 !important;
     padding: 0 !important;
-}
-
-/* Also neutralise the global height:auto on svg inside circle buttons */
-.button.circle svg,
-a.zoom-button svg {
-    height: 16px !important;
-}
-
-a.zoom-button,
-.zoom-button.button.circle {
-  width: 36px !important;
-  height: 36px !important;
-  min-height: 36px !important;
-  max-height: 36px !important;
-  aspect-ratio: 1 / 1 !important;
-  border-radius: 50% !important;
-  padding: 0 !important;
-  line-height: 36px !important;
 }
 /* ── END ZOOM BUTTON FIX ── */
 
@@ -345,21 +331,4 @@ li.wc-cart,
 [class*="header-cart"],
 .flatsome-cart {
     display: none !important;
-}
-
-/* ZOOM BUTTON FORCE FIX */
-a.zoom-button.button.is-outline.circle.icon,
-.zoom-button.button.circle.icon {
-  width: 36px !important;
-  height: 36px !important;
-  min-height: 36px !important;
-  max-height: 36px !important;
-  line-height: 36px !important;
-  padding: 0 !important;
-  display: flex !important;
-  align-items: center !important;
-  justify-content: center !important;
-  aspect-ratio: 1 / 1 !important;
-  border-radius: 50% !important;
-  overflow: hidden !important;
 }
