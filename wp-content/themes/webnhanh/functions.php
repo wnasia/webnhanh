@@ -412,4 +412,12 @@ Web Nhanh";
     exit;
 }
 
+// ── LITESPEED: EXCLUDE ZOOM BUTTON FROM UCSS ──
+add_filter('litespeed_optm_ucss_whitelist', function($list) {
+    $list[] = '.zoom-button';
+    $list[] = '.button.circle';
+    $list[] = '.button.circle.icon';
+    return $list;
+});
+
 
