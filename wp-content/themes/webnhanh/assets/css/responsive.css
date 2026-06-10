@@ -346,3 +346,20 @@ li.wc-cart,
 .flatsome-cart {
     display: none !important;
 }
+
+/* ZOOM BUTTON FORCE FIX */
+a.zoom-button.button.is-outline.circle.icon,
+.zoom-button.button.circle.icon {
+  width: 36px !important;
+  height: 36px !important;
+  min-height: 36px !important;
+  max-height: 36px !important;
+  line-height: 36px !important;
+  padding: 0 !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  aspect-ratio: 1 / 1 !important;
+  border-radius: 50% !important;
+  overflow: hidden !important;
+}
