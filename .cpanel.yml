@@ -1,0 +1,6 @@
+---
+deployment:
+  tasks:
+    - export DEPLOYPATH=/home/eypppgfd/public_html/
+    - /bin/cp -r /home/eypppgfd/public_html_git/. $DEPLOYPATH
+    - /usr/local/bin/wp cache flush --path=$DEPLOYPATH --allow-root 2>/dev/null || true
