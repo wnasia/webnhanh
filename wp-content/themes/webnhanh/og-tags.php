@@ -26,7 +26,8 @@ if ( ! defined('WEBNHANH_OG_LOCALE') ) {
  */
 if ( ! function_exists('webnhanh_get_og_payload') ) {
     function webnhanh_get_og_payload() {
-        $site_name   = 'Web Nhanh'; // cố định tên thương hiệu
+        $site_name    = 'Web Nhanh'; // cố định tên thương hiệu
+        $og_site_name = 'Web Nhanh - webnhanh.net'; // og:site_name đồng bộ brand entity với domain .net (Section 11a)
         $default_img = WEBNHANH_OG_DEFAULT_IMAGE;
         $locale      = WEBNHANH_OG_LOCALE;
 
@@ -63,7 +64,7 @@ if ( ! function_exists('webnhanh_get_og_payload') ) {
                 'img'    => $img,
                 'img_w'  => $img_w,
                 'img_h'  => $img_h,
-                'site'   => $site_name,
+                'site'   => $og_site_name,
                 'type'   => 'article',
                 'locale' => $locale,
                 'pub'    => get_the_time('c', $post->ID),
@@ -79,7 +80,7 @@ if ( ! function_exists('webnhanh_get_og_payload') ) {
             'img'    => $default_img,
             'img_w'  => 1200,
             'img_h'  => 630,
-            'site'   => $site_name,
+            'site'   => $og_site_name,
             'type'   => 'website',
             'locale' => $locale,
             'pub'    => '',

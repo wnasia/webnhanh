@@ -12,6 +12,11 @@ Disallow: /cdn-cgi/
 Disallow: /refer/
 Disallow: /component/*
 
+# --- Chặn tag archive & search results ---
+Disallow: /tag/
+Disallow: /?s=
+Disallow: /search/
+
 # --- Chặn các query rác ---
 Disallow: *?replytocom
 Disallow: *utm_*

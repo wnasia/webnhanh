@@ -191,6 +191,16 @@ add_action('wp_enqueue_scripts', function() {
     wp_enqueue_style('parent-style', get_template_directory_uri() . '/style.css');
 }, 5);
 
+// Preconnect tới Google Fonts & Font Awesome CDN để giảm render-blocking, hỗ trợ LCP
+add_filter('wp_resource_hints', function($urls, $relation_type) {
+    if ($relation_type === 'preconnect') {
+        $urls[] = ['href' => 'https://fonts.googleapis.com'];
+        $urls[] = ['href' => 'https://fonts.gstatic.com', 'crossorigin' => 'anonymous'];
+        $urls[] = ['href' => 'https://cdnjs.cloudflare.com'];
+    }
+    return $urls;
+}, 10, 2);
+
 function webnhanh_add_google_fonts() {
     wp_enqueue_style(
         'webnhanh-google-fonts',
@@ -249,27 +259,22 @@ add_action('template_redirect', function(){
     }
 });
 
-add_action('wp_footer', function () {
-    if (is_admin()) return; // tránh chạy trong admin
-    ?>
-    <script id="demote-extra-h1">
-    document.addEventListener('DOMContentLoaded', function () {
-        var h1s = document.querySelectorAll('h1');
-        for (var i = 1; i < h1s.length; i++) {
-            var h1 = h1s[i];
-            var h2 = document.createElement('h2');
-            for (var j = 0; j < h1.attributes.length; j++) {
-                var a = h1.attributes[j];
-                h2.setAttribute(a.name, a.value);
-            }
-            h2.setAttribute('data-demoted','1');
-            h2.innerHTML = h1.innerHTML;
-            h1.parentNode.replaceChild(h2, h1);
-        }
-    });
-    </script>
-    <?php
-}, 999);
+/**
+ * Flatsome's flatsome_archive_title() (hooked on flatsome_before_blog) renders
+ * <h1 class="page-title is-large uppercase"> for category/tag/search/author/date
+ * archives. On other request types (pages, posts page, post-type archives) the
+ * conditions inside archive-title.php all fail and it still prints an EMPTY h1,
+ * which combines with the page's own title h1 to create multiple H1 tags.
+ * Remove that hook for any request where it would render empty.
+ */
+add_action('wp_head', function () {
+    $is_supported_archive = is_category() || is_tag() || is_search() || is_author()
+        || is_date() || is_tax('post_format');
+
+    if ( ! $is_supported_archive ) {
+        remove_action('flatsome_before_blog', 'flatsome_archive_title', 15);
+    }
+});
 
 // HARD REMOVE LOST PASSWORD FEATURE
 add_action('login_init', function() {

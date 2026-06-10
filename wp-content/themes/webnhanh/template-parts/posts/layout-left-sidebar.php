@@ -20,12 +20,6 @@ do_action( 'flatsome_before_blog' );
 	</div>
 
 	<div class="large-9 col medium-col-first">
-		<?php if ( is_category() ) : ?>
-			<h1 class="entry-title mb uppercase" style="border-bottom:1px solid #ccc; padding-bottom:10px; margin-bottom:20px;">
-				<?php single_term_title(); ?>
-			</h1>
-		<?php endif; ?>
-
 		<?php if ( ! is_single() && get_theme_mod( 'blog_featured', '' ) == 'content' ) { get_template_part( 'template-parts/posts/featured-posts' ); } ?>
 
 		<?php
