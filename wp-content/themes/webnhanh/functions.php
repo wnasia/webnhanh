@@ -415,12 +415,22 @@ Web Nhanh";
 // ── LITESPEED: EXCLUDE ZOOM BUTTON FROM UCSS ──
 add_filter('litespeed_optm_ucss_whitelist', function($list) {
     $list[] = '.zoom-button';
+    $list[] = 'a.zoom-button';
     $list[] = '.button.circle';
     $list[] = '.button.circle.icon';
+    $list[] = '.icon-expand';
+    $list[] = '.icon-expand:before';
+    $list[] = '.pswp__button';
+    $list[] = '.pswp__button--zoom';
+    $list[] = '.pswp--zoom-allowed .pswp__button--zoom';
+    $list[] = '.pswp--zoomed-in .pswp__button--zoom';
     return $list;
 });
 
 add_action('wp_head', function() {
+    $pswp_png = content_url('plugins/woocommerce/assets/css/photoswipe/default-skin/default-skin.png');
+    $pswp_svg = content_url('plugins/woocommerce/assets/css/photoswipe/default-skin/default-skin.svg');
+
     echo '<style id="zoom-button-fix">
 a.zoom-button.button.is-outline.circle.icon,
 .zoom-button.button.circle.icon,
@@ -438,7 +448,51 @@ a[href="#product-zoom"] {
     overflow: hidden !important;
     box-sizing: border-box !important;
 }
+a.zoom-button.button.is-outline.circle.icon > i,
+.zoom-button.button.circle.icon > i,
+a[href="#product-zoom"] > i {
+    width: 18px !important;
+    height: 18px !important;
+    min-width: 18px !important;
+    min-height: 18px !important;
+    line-height: 18px !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    top: 0 !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    flex: 0 0 18px !important;
+    font-family: fl-icons !important;
+    font-size: 18px !important;
+    font-style: normal !important;
+    font-weight: 400 !important;
+    text-rendering: auto !important;
+    -webkit-font-smoothing: antialiased !important;
+    -moz-osx-font-smoothing: grayscale !important;
+}
+a.zoom-button.button.is-outline.circle.icon > i:before,
+.zoom-button.button.circle.icon > i:before,
+a[href="#product-zoom"] > i:before {
+    display: block !important;
+    line-height: 1 !important;
+}
+button.pswp__button {
+    background-image: url("' . esc_url($pswp_png) . '") !important;
+    background-size: 264px 88px !important;
+}
+.pswp--svg button.pswp__button,
+.pswp--svg button.pswp__button--arrow--left:before,
+.pswp--svg button.pswp__button--arrow--right:before {
+    background-image: url("' . esc_url($pswp_svg) . '") !important;
+    background-size: 264px 88px !important;
+}
+button.pswp__button--zoom {
+    background-position: -88px 0 !important;
+}
+.pswp--zoomed-in button.pswp__button--zoom {
+    background-position: -132px 0 !important;
+}
 </style>';
 }, 999);
-
 
