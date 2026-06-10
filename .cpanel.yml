@@ -1,6 +1,10 @@
 ---
 deployment:
   tasks:
-    - export DEPLOYPATH=/home/eypppgfd/public_html/
-    - /bin/cp -r /home/eypppgfd/public_html_git/. $DEPLOYPATH
+    - export DEPLOYPATH=/home/eypppgfd/public_html
+    - export REPOPATH=/home/eypppgfd/webnhanh_git
+    - /usr/bin/rsync -a "$REPOPATH/wp-content/themes/webnhanh/" "$DEPLOYPATH/wp-content/themes/webnhanh/"
+    - /usr/bin/rsync -a "$REPOPATH/wp-content/themes/flatsome/" "$DEPLOYPATH/wp-content/themes/flatsome/"
+    - /usr/bin/rsync -a "$REPOPATH/wp-content/plugins/Web Nhanh/" "$DEPLOYPATH/wp-content/plugins/Web Nhanh/"
+    - /usr/bin/rsync -a "$REPOPATH/wp-content/mu-plugins/" "$DEPLOYPATH/wp-content/mu-plugins/"
     - /usr/local/bin/wp cache flush --path=$DEPLOYPATH --allow-root 2>/dev/null || true
