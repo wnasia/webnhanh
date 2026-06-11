@@ -364,6 +364,19 @@ function wn_handle_mail(){
     $contact = isset($_POST['wn_contact']) ? sanitize_text_field($_POST['wn_contact']) : '';
     $message = isset($_POST['wn_message']) ? sanitize_textarea_field($_POST['wn_message']) : '';
 
+    wn_send_contact_emails($name, $contact, $message);
+
+    // Redirect về trang cảm ơn / liên hệ
+    wp_redirect(home_url('/lien-he/?sent=1'));
+    exit;
+}
+
+/**
+ * Gửi mail liên hệ cho admin + auto-reply cho khách (nếu contact là email hợp lệ).
+ * Dùng chung bởi wn_handle_mail (form trang liên hệ) và wn_handle_mail_ajax (popup tư vấn).
+ */
+function wn_send_contact_emails($name, $contact, $message) {
+
     // Email admin
     $admin_email = "int.vnus@gmail.com";
 
@@ -418,13 +431,95 @@ Web Nhanh";
 
         wp_mail($contact, $subject_reply, $body_reply, $headers_reply);
     }
+}
 
-    // ============================
-    // 3) Redirect về trang cảm ơn / liên hệ
-    // ============================
+/* ============================================
+ *  POPUP "TƯ VẤN NGAY" — header button mở form liên hệ qua AJAX
+ * ============================================ */
 
-    wp_redirect(home_url('/lien-he/?sent=1'));
-    exit;
+// Enqueue CSS + JS cho popup
+add_action('wp_enqueue_scripts', function () {
+    if (is_admin()) return;
+
+    $css_path = get_stylesheet_directory() . '/assets/css/popup-tuvan.css';
+    $js_path  = get_stylesheet_directory() . '/assets/js/popup-tuvan.js';
+
+    wp_enqueue_style(
+        'webnhanh-popup-tuvan',
+        get_stylesheet_directory_uri() . '/assets/css/popup-tuvan.css',
+        [],
+        file_exists($css_path) ? filemtime($css_path) : '1.0.0'
+    );
+
+    wp_enqueue_script(
+        'webnhanh-popup-tuvan',
+        get_stylesheet_directory_uri() . '/assets/js/popup-tuvan.js',
+        [],
+        file_exists($js_path) ? filemtime($js_path) : '1.0.0',
+        true
+    );
+
+    wp_localize_script('webnhanh-popup-tuvan', 'wnTuVanData', [
+        'ajaxUrl' => admin_url('admin-ajax.php'),
+    ]);
+}, 20);
+
+// Render popup markup vào footer
+add_action('wp_footer', 'webnhanh_render_tuvan_popup');
+function webnhanh_render_tuvan_popup() {
+    if (is_admin()) return;
+    $nonce = wp_create_nonce('wn_send_mail_action');
+    ?>
+    <div id="wn-tuvan-overlay" class="wn-tuvan-overlay" aria-hidden="true">
+        <div class="wn-tuvan-popup" role="dialog" aria-modal="true" aria-labelledby="wn-tuvan-title">
+            <button type="button" class="wn-tuvan-close" aria-label="Đóng">&times;</button>
+            <h3 id="wn-tuvan-title">Tư vấn ngay</h3>
+            <form id="wn-tuvan-form" class="wn-tuvan-form" method="post">
+                <p class="wn-tuvan-field">
+                    <label for="wn-tuvan-name">Họ tên</label>
+                    <input type="text" id="wn-tuvan-name" name="wn_name" required>
+                </p>
+                <p class="wn-tuvan-field">
+                    <label for="wn-tuvan-phone">Số điện thoại</label>
+                    <input type="tel" id="wn-tuvan-phone" name="wn_contact" required>
+                </p>
+                <p class="wn-tuvan-field">
+                    <label for="wn-tuvan-message">Nhu cầu</label>
+                    <textarea id="wn-tuvan-message" name="wn_message" rows="4" required></textarea>
+                </p>
+                <input type="hidden" name="action" value="wn_send_mail_ajax">
+                <input type="hidden" name="wn_mail_nonce" value="<?php echo esc_attr( $nonce ); ?>">
+                <button type="submit" class="wn-tuvan-submit">Gửi</button>
+                <p class="wn-tuvan-success" hidden><?php echo esc_html( 'Cảm ơn! Chúng tôi sẽ liên hệ sớm.' ); ?></p>
+                <p class="wn-tuvan-error" hidden><?php echo esc_html( 'Đã có lỗi xảy ra. Vui lòng thử lại.' ); ?></p>
+            </form>
+        </div>
+    </div>
+    <?php
+}
+
+// AJAX handler cho popup tư vấn
+add_action('wp_ajax_wn_send_mail_ajax', 'wn_handle_mail_ajax');
+add_action('wp_ajax_nopriv_wn_send_mail_ajax', 'wn_handle_mail_ajax');
+function wn_handle_mail_ajax() {
+
+    // CSRF protection — verify nonce before processing any data
+    if ( ! isset( $_POST['wn_mail_nonce'] ) ||
+         ! wp_verify_nonce( $_POST['wn_mail_nonce'], 'wn_send_mail_action' ) ) {
+        wp_send_json_error( [ 'message' => 'Security check failed.' ], 403 );
+    }
+
+    $name    = isset($_POST['wn_name'])    ? sanitize_text_field($_POST['wn_name'])    : '';
+    $contact = isset($_POST['wn_contact']) ? sanitize_text_field($_POST['wn_contact']) : '';
+    $message = isset($_POST['wn_message']) ? sanitize_textarea_field($_POST['wn_message']) : '';
+
+    if ( $name === '' || $contact === '' || $message === '' ) {
+        wp_send_json_error( [ 'message' => 'Vui lòng điền đầy đủ thông tin.' ], 400 );
+    }
+
+    wn_send_contact_emails($name, $contact, $message);
+
+    wp_send_json_success( [ 'message' => 'Cảm ơn! Chúng tôi sẽ liên hệ sớm.' ] );
 }
 
 // ── LITESPEED: EXCLUDE ZOOM BUTTON FROM UCSS ──

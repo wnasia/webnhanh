@@ -1,0 +1,137 @@
+/* ================================================
+   POPUP "TƯ VẤN NGAY" — Web Nhanh Child Theme
+================================================ */
+
+.wn-tuvan-overlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.6);
+    z-index: 99999;
+    align-items: center;
+    justify-content: center;
+    padding: 16px;
+}
+
+.wn-tuvan-overlay.is-open {
+    display: flex;
+}
+
+.wn-tuvan-popup {
+    position: relative;
+    background: #fff;
+    width: 100%;
+    max-width: 420px;
+    border-radius: 12px;
+    padding: 28px 24px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+    max-height: 90vh;
+    overflow-y: auto;
+}
+
+.wn-tuvan-close {
+    position: absolute;
+    top: 10px;
+    right: 12px;
+    background: transparent;
+    border: none;
+    font-size: 24px;
+    line-height: 1;
+    color: #666;
+    cursor: pointer;
+    padding: 4px 8px;
+}
+
+.wn-tuvan-close:hover {
+    color: #111;
+}
+
+.wn-tuvan-popup h3 {
+    margin: 0 0 16px;
+    font-size: 1.3rem;
+    font-weight: 600;
+    color: #0f75bd;
+    text-align: center;
+}
+
+.wn-tuvan-field {
+    margin: 0 0 14px;
+}
+
+.wn-tuvan-field label {
+    display: block;
+    margin-bottom: 6px;
+    font-weight: 600;
+    font-size: 0.9rem;
+    color: #333;
+}
+
+.wn-tuvan-field input,
+.wn-tuvan-field textarea {
+    width: 100%;
+    padding: 10px 12px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 0.95rem;
+    font-family: inherit;
+    box-sizing: border-box;
+}
+
+.wn-tuvan-field input:focus,
+.wn-tuvan-field textarea:focus {
+    outline: none;
+    border-color: #0f75bd;
+}
+
+.wn-tuvan-submit {
+    width: 100%;
+    background-color: #0f75bd;
+    color: #fff;
+    border: none;
+    border-radius: 24px;
+    padding: 12px 16px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.25s ease;
+}
+
+.wn-tuvan-submit:hover {
+    background-color: #0c5f99;
+}
+
+.wn-tuvan-submit:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+.wn-tuvan-success,
+.wn-tuvan-error {
+    margin: 14px 0 0;
+    padding: 10px 14px;
+    border-radius: 6px;
+    font-size: 0.9rem;
+    text-align: center;
+}
+
+.wn-tuvan-success {
+    background: #e6f4ea;
+    color: #1e7e34;
+}
+
+.wn-tuvan-error {
+    background: #fdecea;
+    color: #c0392b;
+}
+
+/* ── MOBILE ── */
+@media (max-width: 575px) {
+    .wn-tuvan-popup {
+        padding: 22px 16px;
+        border-radius: 10px;
+    }
+
+    .wn-tuvan-popup h3 {
+        font-size: 1.15rem;
+    }
+}
