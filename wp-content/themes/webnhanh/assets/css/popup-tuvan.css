@@ -1,197 +1,210 @@
 /* ================================================
    POPUP "TƯ VẤN NGAY" — Web Nhanh Child Theme
-   Flat, compact design — fits in one screen, no scroll
+   v2 — high specificity để override Flatsome
 ================================================ */
 
-.wn-tuvan-overlay {
+#wn-tuvan-overlay {
     display: none;
     position: fixed;
     inset: 0;
-    background: rgba(0, 0, 0, 0.6);
-    z-index: 99999;
+    background: rgba(0,0,0,0.55);
+    z-index: 999999;
     align-items: center;
     justify-content: center;
     padding: 16px;
+    box-sizing: border-box;
 }
 
-.wn-tuvan-overlay.is-open {
+#wn-tuvan-overlay.is-open {
     display: flex;
 }
 
-.wn-tuvan-popup {
+#wn-tuvan-overlay .wn-tuvan-popup {
     position: relative;
     background: #fff;
     width: 100%;
-    max-width: 480px;
-    border-radius: 10px;
-    padding: 24px;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.12);
+    max-width: 460px;
+    border-radius: 8px;
+    padding: 28px 28px 24px;
+    box-shadow: 0 8px 32px rgba(0,0,0,0.14);
+    box-sizing: border-box;
     overflow: visible;
 }
 
-.wn-tuvan-close {
+/* ── Close button ── */
+#wn-tuvan-overlay .wn-tuvan-close {
     position: absolute;
-    top: 8px;
-    right: 8px;
-    width: 28px;
-    height: 28px;
-    background: transparent;
-    border: none;
-    border-radius: 4px;
-    font-size: 18px;
+    top: 10px;
+    right: 12px;
+    background: none !important;
+    border: none !important;
+    box-shadow: none !important;
+    font-size: 20px;
     line-height: 1;
-    color: #999;
+    color: #aaa;
     cursor: pointer;
-    padding: 0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    padding: 4px;
+    width: auto;
+    height: auto;
+    min-width: 0;
+    border-radius: 0;
 }
 
-.wn-tuvan-close:hover {
+#wn-tuvan-overlay .wn-tuvan-close:hover {
     color: #333;
+    background: none !important;
 }
 
-.wn-tuvan-popup h3 {
-    margin: 0 0 16px;
-    padding-right: 28px;
-    font-size: 1.05rem;
-    font-weight: 600;
-    color: #0f75bd;
-    text-align: left;
+/* ── Title ── */
+#wn-tuvan-overlay .wn-tuvan-popup h3 {
+    margin: 0 0 18px !important;
+    padding: 0 24px 0 0 !important;
+    font-size: 1rem !important;
+    font-weight: 700 !important;
+    color: #0f75bd !important;
+    text-align: left !important;
+    border: none !important;
+    background: none !important;
+    line-height: 1.3 !important;
 }
 
-.wn-tuvan-form {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 10px 12px;
+/* ── Form grid ── */
+#wn-tuvan-overlay .wn-tuvan-form {
+    display: grid !important;
+    grid-template-columns: 1fr 1fr !important;
+    gap: 10px 12px !important;
+    margin: 0 !important;
+    padding: 0 !important;
 }
 
-.wn-tuvan-field {
-    margin: 0;
+#wn-tuvan-overlay .wn-tuvan-field {
+    margin: 0 !important;
+    padding: 0 !important;
     grid-column: span 1;
 }
 
-/* Email + Nhu cầu — mỗi field 1 hàng riêng (full width) */
-.wn-tuvan-field:nth-of-type(3),
-.wn-tuvan-field:nth-of-type(4) {
-    grid-column: 1 / -1;
+/* Email + Nhu cầu + Submit + Messages = full width */
+#wn-tuvan-overlay .wn-tuvan-field:nth-of-type(3),
+#wn-tuvan-overlay .wn-tuvan-field:nth-of-type(4),
+#wn-tuvan-overlay .wn-tuvan-submit,
+#wn-tuvan-overlay .wn-tuvan-success,
+#wn-tuvan-overlay .wn-tuvan-error {
+    grid-column: 1 / -1 !important;
 }
 
-.wn-tuvan-field label {
-    display: block;
-    margin-bottom: 4px;
-    font-weight: 600;
-    font-size: 0.78rem;
-    color: #555;
+/* ── Labels ── */
+#wn-tuvan-overlay .wn-tuvan-field label {
+    display: block !important;
+    margin: 0 0 4px !important;
+    font-size: 0.75rem !important;
+    font-weight: 600 !important;
+    color: #555 !important;
+    text-transform: none !important;
+    letter-spacing: 0 !important;
 }
 
-.wn-tuvan-field input,
-.wn-tuvan-field textarea {
-    width: 100%;
-    padding: 8px 10px;
-    border: 1px solid #ddd;
-    border-radius: 6px;
-    font-size: 0.85rem;
-    font-family: inherit;
-    box-sizing: border-box;
-    background: #fff;
-    box-shadow: none;
+/* ── Inputs ── */
+#wn-tuvan-overlay .wn-tuvan-field input[type="text"],
+#wn-tuvan-overlay .wn-tuvan-field input[type="email"],
+#wn-tuvan-overlay .wn-tuvan-field input[type="tel"],
+#wn-tuvan-overlay .wn-tuvan-field textarea {
+    width: 100% !important;
+    padding: 8px 10px !important;
+    border: 1px solid #ddd !important;
+    border-radius: 6px !important;
+    font-size: 0.83rem !important;
+    font-family: inherit !important;
+    box-sizing: border-box !important;
+    background: #fafafa !important;
+    box-shadow: none !important;
+    outline: none !important;
+    color: #333 !important;
+    min-height: 0 !important;
+    height: auto !important;
+    line-height: 1.4 !important;
+    transition: border-color 0.15s ease !important;
+    -webkit-appearance: none !important;
+    appearance: none !important;
 }
 
-.wn-tuvan-field textarea {
-    height: 80px;
-    resize: none;
+#wn-tuvan-overlay .wn-tuvan-field textarea {
+    height: 76px !important;
+    resize: none !important;
 }
 
-.wn-tuvan-field input:focus,
-.wn-tuvan-field textarea:focus {
-    outline: none;
-    border-color: #90caf9;
-    box-shadow: none;
+#wn-tuvan-overlay .wn-tuvan-field input:focus,
+#wn-tuvan-overlay .wn-tuvan-field textarea:focus {
+    border-color: #90caf9 !important;
+    background: #fff !important;
+    box-shadow: none !important;
 }
 
-.wn-tuvan-submit {
-    grid-column: 1 / -1;
+/* ── Submit button ── */
+#wn-tuvan-overlay .wn-tuvan-submit {
     justify-self: end;
-    width: auto;
-    background-color: #0f75bd;
-    color: #fff;
-    border: none;
-    border-radius: 6px;
-    padding: 8px 22px;
-    font-size: 0.85rem;
-    font-weight: 600;
-    cursor: pointer;
-    box-shadow: none;
-    transition: background-color 0.2s ease;
+    background: #0f75bd !important;
+    color: #fff !important;
+    border: none !important;
+    border-radius: 6px !important;
+    padding: 9px 24px !important;
+    font-size: 0.85rem !important;
+    font-weight: 600 !important;
+    cursor: pointer !important;
+    box-shadow: none !important;
+    width: auto !important;
+    min-width: 0 !important;
+    line-height: 1.4 !important;
+    transition: background 0.18s ease !important;
+    letter-spacing: 0 !important;
+    text-transform: none !important;
 }
 
-.wn-tuvan-submit:hover {
-    background-color: #0c5f99;
+#wn-tuvan-overlay .wn-tuvan-submit:hover {
+    background: #0c5f99 !important;
 }
 
-.wn-tuvan-submit:disabled {
-    opacity: 0.6;
-    cursor: not-allowed;
+#wn-tuvan-overlay .wn-tuvan-submit:disabled {
+    opacity: 0.6 !important;
+    cursor: not-allowed !important;
 }
 
-.wn-tuvan-success,
-.wn-tuvan-error {
-    grid-column: 1 / -1;
-    margin: 0;
-    padding: 8px 12px;
-    border-radius: 6px;
-    font-size: 0.8rem;
-    text-align: center;
+/* ── Messages ── */
+#wn-tuvan-overlay .wn-tuvan-success,
+#wn-tuvan-overlay .wn-tuvan-error {
+    margin: 0 !important;
+    padding: 8px 12px !important;
+    border-radius: 6px !important;
+    font-size: 0.8rem !important;
+    text-align: center !important;
 }
 
-.wn-tuvan-success {
-    background: #e6f4ea;
-    color: #1e7e34;
+#wn-tuvan-overlay .wn-tuvan-success {
+    background: #e6f4ea !important;
+    color: #1e7e34 !important;
 }
 
-.wn-tuvan-error {
-    background: #fdecea;
-    color: #c0392b;
+#wn-tuvan-overlay .wn-tuvan-error {
+    background: #fdecea !important;
+    color: #c0392b !important;
 }
 
-/* ── Override touch-target rules từ responsive.css để giữ compact trên mobile ── */
-@media (max-width: 767px) {
-    .wn-tuvan-popup .wn-tuvan-field input,
-    .wn-tuvan-popup .wn-tuvan-field textarea {
-        font-size: 0.85rem !important;
-        padding: 8px 10px !important;
-        min-height: 0 !important;
-    }
-}
-
-/* ── MOBILE: gộp về 1 cột, vẫn gọn không cuộn ── */
-@media (max-width: 480px) {
-    .wn-tuvan-popup {
-        padding: 18px;
-        border-radius: 8px;
+/* ── Mobile ── */
+@media (max-width: 520px) {
+    #wn-tuvan-overlay .wn-tuvan-popup {
+        padding: 20px 18px 18px !important;
     }
 
-    .wn-tuvan-popup h3 {
-        font-size: 0.95rem;
-        margin-bottom: 12px;
+    #wn-tuvan-overlay .wn-tuvan-form {
+        grid-template-columns: 1fr !important;
     }
 
-    .wn-tuvan-form {
-        grid-template-columns: 1fr;
-        gap: 8px;
-    }
-
-    .wn-tuvan-field {
+    #wn-tuvan-overlay .wn-tuvan-field {
         grid-column: 1 / -1 !important;
     }
 
-    .wn-tuvan-field textarea {
-        height: 70px;
-    }
-
-    .wn-tuvan-submit {
-        padding: 8px 18px;
+    #wn-tuvan-overlay .wn-tuvan-submit {
+        width: 100% !important;
+        justify-self: stretch !important;
+        text-align: center !important;
     }
 }
