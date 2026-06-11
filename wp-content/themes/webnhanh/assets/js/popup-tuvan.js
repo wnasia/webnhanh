@@ -7,6 +7,10 @@
         var success = form ? form.querySelector('.wn-tuvan-success') : null;
         var error   = form ? form.querySelector('.wn-tuvan-error') : null;
         var submitBtn = form ? form.querySelector('.wn-tuvan-submit') : null;
+        var emailField = form ? form.querySelector('#wn-tuvan-email') : null;
+
+        var EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        var defaultErrorText = error ? error.textContent : '';
 
         if (!overlay || !form) return;
 
@@ -45,6 +49,17 @@
 
             if (success) success.hidden = true;
             if (error) error.hidden = true;
+
+            // Email là field tùy chọn — chỉ validate nếu khách có nhập
+            if (emailField && emailField.value.trim() !== '' && !EMAIL_RE.test(emailField.value.trim())) {
+                if (error) {
+                    error.textContent = 'Email không hợp lệ. Vui lòng kiểm tra lại.';
+                    error.hidden = false;
+                }
+                emailField.focus();
+                return;
+            }
+
             if (submitBtn) submitBtn.disabled = true;
 
             var formData = new FormData(form);
@@ -60,11 +75,17 @@
                         if (success) success.hidden = false;
                         form.reset();
                     } else {
-                        if (error) error.hidden = false;
+                        if (error) {
+                            error.textContent = defaultErrorText;
+                            error.hidden = false;
+                        }
                     }
                 })
                 .catch(function () {
-                    if (error) error.hidden = false;
+                    if (error) {
+                        error.textContent = defaultErrorText;
+                        error.hidden = false;
+                    }
                 })
                 .finally(function () {
                     if (submitBtn) submitBtn.disabled = false;

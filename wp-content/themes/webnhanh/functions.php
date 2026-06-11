@@ -375,7 +375,7 @@ function wn_handle_mail(){
  * Gửi mail liên hệ cho admin + auto-reply cho khách (nếu contact là email hợp lệ).
  * Dùng chung bởi wn_handle_mail (form trang liên hệ) và wn_handle_mail_ajax (popup tư vấn).
  */
-function wn_send_contact_emails($name, $contact, $message) {
+function wn_send_contact_emails($name, $contact, $message, $email = '') {
 
     // Email admin
     $admin_email = "int.vnus@gmail.com";
@@ -404,10 +404,19 @@ function wn_send_contact_emails($name, $contact, $message) {
     wp_mail($admin_email, $subject_admin, $body_admin, $headers_admin);
 
     // ============================
-    // 2) AUTO-REPLY CHO KHÁCH (NẾU CONTACT LÀ EMAIL HỢP LỆ)
+    // 2) AUTO-REPLY CHO KHÁCH
+    //    Ưu tiên $email (field email riêng nếu có), fallback về $contact
+    //    nếu $contact tự nó là email hợp lệ.
     // ============================
 
-    if (filter_var($contact, FILTER_VALIDATE_EMAIL)) {
+    $reply_to = '';
+    if (filter_var($email, FILTER_VALIDATE_EMAIL)) {
+        $reply_to = $email;
+    } elseif (filter_var($contact, FILTER_VALIDATE_EMAIL)) {
+        $reply_to = $contact;
+    }
+
+    if ($reply_to) {
 
         $subject_reply = "Web Nhanh đã nhận được yêu cầu của bạn";
 
@@ -429,7 +438,7 @@ Web Nhanh";
             'From: Web Nhanh <no-reply@' . $site_domain . '>',
         );
 
-        wp_mail($contact, $subject_reply, $body_reply, $headers_reply);
+        wp_mail($reply_to, $subject_reply, $body_reply, $headers_reply);
     }
 }
 
@@ -484,6 +493,10 @@ function webnhanh_render_tuvan_popup() {
                     <input type="tel" id="wn-tuvan-phone" name="wn_contact" required>
                 </p>
                 <p class="wn-tuvan-field">
+                    <label for="wn-tuvan-email">Email</label>
+                    <input type="email" id="wn-tuvan-email" name="wn_email" placeholder="Email của bạn (để nhận tư vấn)">
+                </p>
+                <p class="wn-tuvan-field">
                     <label for="wn-tuvan-message">Nhu cầu</label>
                     <textarea id="wn-tuvan-message" name="wn_message" rows="4" required></textarea>
                 </p>
@@ -511,13 +524,19 @@ function wn_handle_mail_ajax() {
 
     $name    = isset($_POST['wn_name'])    ? sanitize_text_field($_POST['wn_name'])    : '';
     $contact = isset($_POST['wn_contact']) ? sanitize_text_field($_POST['wn_contact']) : '';
+    $email   = isset($_POST['wn_email'])   ? sanitize_email($_POST['wn_email'])        : '';
     $message = isset($_POST['wn_message']) ? sanitize_textarea_field($_POST['wn_message']) : '';
 
     if ( $name === '' || $contact === '' || $message === '' ) {
         wp_send_json_error( [ 'message' => 'Vui lòng điền đầy đủ thông tin.' ], 400 );
     }
 
-    wn_send_contact_emails($name, $contact, $message);
+    // Email là field tùy chọn — nếu có nhập thì phải hợp lệ
+    if ( $email !== '' && ! is_email($email) ) {
+        wp_send_json_error( [ 'message' => 'Email không hợp lệ.' ], 400 );
+    }
+
+    wn_send_contact_emails($name, $contact, $message, $email);
 
     wp_send_json_success( [ 'message' => 'Cảm ơn! Chúng tôi sẽ liên hệ sớm.' ] );
 }
