@@ -306,7 +306,10 @@ a[href="#product-zoom"] i,
 .button.circle.icon i,
 a.zoom-button svg,
 a[href="#product-zoom"] svg,
-.button.circle svg {
+.button.circle svg,
+a.zoom-button.button.is-outline.circle.icon > i,
+.zoom-button.button.circle.icon > i,
+a[href="#product-zoom"] > i {
     font-size: 16px !important;
     width: 16px !important;
     height: 16px !important;
@@ -316,7 +319,30 @@ a[href="#product-zoom"] svg,
     margin: 0 !important;
     padding: 0 !important;
 }
+
+/* PhotoSwipe lightbox buttons — sprite from WooCommerce default-skin */
+button.pswp__button {
+    background-image: url("../../../../plugins/woocommerce/assets/css/photoswipe/default-skin/default-skin.png") !important;
+    background-size: 264px 88px !important;
+}
+.pswp--svg button.pswp__button,
+.pswp--svg button.pswp__button--arrow--left:before,
+.pswp--svg button.pswp__button--arrow--right:before {
+    background-image: url("../../../../plugins/woocommerce/assets/css/photoswipe/default-skin/default-skin.svg") !important;
+    background-size: 264px 88px !important;
+}
+button.pswp__button--zoom {
+    background-position: -88px 0 !important;
+}
+.pswp--zoomed-in button.pswp__button--zoom {
+    background-position: -132px 0 !important;
+}
 /* ── END ZOOM BUTTON FIX ── */
+
+/* ── HIDE LOGIN POPUP (Flatsome header builder) ── */
+#login-form-popup {
+    display: none !important;
+}
 
 /* ── HIDE CART ICON (catalog-only mode) ── */
 .header-cart,

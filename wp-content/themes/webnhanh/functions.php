@@ -211,7 +211,7 @@ function webnhanh_add_google_fonts() {
         'webnhanh-responsive',
         get_stylesheet_directory_uri() . '/assets/css/responsive.css',
         ['flatsome-main'],
-        '1.0.3'
+        '1.0.4'
     );
 }
 add_action('wp_enqueue_scripts', 'webnhanh_add_google_fonts');
@@ -300,16 +300,12 @@ function webnhanh_fix_organization_country_code( $data ) {
     return $data;
 }
 
-/* ============================================================
- *  ẨN POPUP LOGIN KHỎI FRONT-END — dùng CSS thay ob_start()
- *  ob_start() cũ buffer toàn bộ trang (~100% RAM overhead/request).
- *  CSS display:none hiệu quả hơn và không ảnh hưởng server-side.
+/* ============================================
+ *  ẨN POPUP LOGIN KHỎI FRONT-END
+ *  CSS display:none đặt trong assets/css/responsive.css
+ *  (#login-form-popup) — không ảnh hưởng server-side.
  *  Nếu muốn xóa hoàn toàn: tắt "Login" popup trong Flatsome > Header Builder.
- * ============================================================ */
-add_action('wp_head', function () {
-    if ( is_admin() ) return;
-    echo '<style>#login-form-popup{display:none!important}</style>' . "\n";
-}, 1);
+ * ============================================ */
 
 /* ============================================
  *  FORM LIÊN HỆ WEBNHANH – GỬI MAIL + AUTO-REPLY
@@ -437,72 +433,6 @@ add_filter('litespeed_optm_ucss_whitelist', function($list) {
     return $list;
 });
 
-add_action('wp_head', function() {
-    $pswp_png = content_url('plugins/woocommerce/assets/css/photoswipe/default-skin/default-skin.png');
-    $pswp_svg = content_url('plugins/woocommerce/assets/css/photoswipe/default-skin/default-skin.svg');
-
-    echo '<style id="zoom-button-fix">
-a.zoom-button.button.is-outline.circle.icon,
-.zoom-button.button.circle.icon,
-a[href="#product-zoom"] {
-    width: 36px !important;
-    height: 36px !important;
-    min-height: 36px !important;
-    max-height: 36px !important;
-    line-height: 36px !important;
-    padding: 0 !important;
-    display: flex !important;
-    align-items: center !important;
-    justify-content: center !important;
-    border-radius: 50% !important;
-    overflow: hidden !important;
-    box-sizing: border-box !important;
-}
-a.zoom-button.button.is-outline.circle.icon > i,
-.zoom-button.button.circle.icon > i,
-a[href="#product-zoom"] > i {
-    width: 18px !important;
-    height: 18px !important;
-    min-width: 18px !important;
-    min-height: 18px !important;
-    line-height: 18px !important;
-    margin: 0 !important;
-    padding: 0 !important;
-    top: 0 !important;
-    display: inline-flex !important;
-    align-items: center !important;
-    justify-content: center !important;
-    flex: 0 0 18px !important;
-    font-family: fl-icons !important;
-    font-size: 18px !important;
-    font-style: normal !important;
-    font-weight: 400 !important;
-    text-rendering: auto !important;
-    -webkit-font-smoothing: antialiased !important;
-    -moz-osx-font-smoothing: grayscale !important;
-}
-a.zoom-button.button.is-outline.circle.icon > i:before,
-.zoom-button.button.circle.icon > i:before,
-a[href="#product-zoom"] > i:before {
-    display: block !important;
-    line-height: 1 !important;
-}
-button.pswp__button {
-    background-image: url("' . esc_url($pswp_png) . '") !important;
-    background-size: 264px 88px !important;
-}
-.pswp--svg button.pswp__button,
-.pswp--svg button.pswp__button--arrow--left:before,
-.pswp--svg button.pswp__button--arrow--right:before {
-    background-image: url("' . esc_url($pswp_svg) . '") !important;
-    background-size: 264px 88px !important;
-}
-button.pswp__button--zoom {
-    background-position: -88px 0 !important;
-}
-.pswp--zoomed-in button.pswp__button--zoom {
-    background-position: -132px 0 !important;
-}
-</style>';
-}, 999);
+// Zoom-button + PhotoSwipe fix giờ nằm trong assets/css/responsive.css
+// (selectors .zoom-button, .button.circle, .pswp__button — xem ZOOM BUTTON FIX)
 
