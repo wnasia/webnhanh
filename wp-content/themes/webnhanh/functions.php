@@ -244,9 +244,15 @@ add_filter('single_template', function($tpl){
 }, 20);
 
 
-/** === v7.2: Post views counter (simple) === */
+/** === v7.2: Post views counter (simple, rate-limited bằng cookie) === */
 function anduc_touch_post_view($post_id = null){
     if (!$post_id) return;
+
+    // Mỗi visitor chỉ tính 1 view / bài / 12h — tránh bloat post meta khi reload liên tục
+    $cookie_name = 'anduc_viewed_' . $post_id;
+    if ( isset( $_COOKIE[$cookie_name] ) ) return;
+    setcookie( $cookie_name, '1', time() + 12 * HOUR_IN_SECONDS, '/' );
+
     $key = 'anduc_post_views';
     $count = (int) get_post_meta($post_id, $key, true);
     $count++;
@@ -361,6 +367,9 @@ function wn_handle_mail(){
     // Email admin
     $admin_email = "int.vnus@gmail.com";
 
+    // Domain cho header From: — lấy từ site URL, không dùng $_SERVER['SERVER_NAME'] (có thể bị giả mạo qua Host header)
+    $site_domain = wp_parse_url( home_url(), PHP_URL_HOST );
+
     // ============================
     // 1) GỬI MAIL VỀ CHO ADMIN
     // ============================
@@ -373,7 +382,7 @@ function wn_handle_mail(){
 
     $headers_admin = array(
         'Content-Type: text/plain; charset=UTF-8',
-        'From: Web Nhanh <no-reply@' . $_SERVER['SERVER_NAME'] . '>',
+        'From: Web Nhanh <no-reply@' . $site_domain . '>',
         // Bcc cho chính admin để luôn lưu vết
         'Bcc: ' . $admin_email,
     );
@@ -404,7 +413,7 @@ Web Nhanh";
 
         $headers_reply = array(
             'Content-Type: text/plain; charset=UTF-8',
-            'From: Web Nhanh <no-reply@' . $_SERVER['SERVER_NAME'] . '>',
+            'From: Web Nhanh <no-reply@' . $site_domain . '>',
         );
 
         wp_mail($contact, $subject_reply, $body_reply, $headers_reply);
