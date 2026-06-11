@@ -15,17 +15,18 @@ html, body {
 }
 
 /* ── HERO: button "Xem bảng giá" — ghost style ── */
-.wn-btn.wn-btn-ghost {
+.wn-btn.wn-btn-ghost,
+.wn-btn.wn-btn-blue.wn-btn-ghost {
   background-color: transparent !important;
-  border: 1.5px solid #1a73e8 !important;
-  color: #1a73e8 !important;
+  border: 2px solid #0f75bd !important;
+  color: #0f75bd !important;
   transition: background-color 0.2s ease, border-color 0.2s ease, color 0.2s ease;
 }
 
-.wn-btn.wn-btn-ghost:hover {
+.wn-btn.wn-btn-ghost:hover,
+.wn-btn.wn-btn-blue.wn-btn-ghost:hover {
   background-color: #e8f0fe !important;
-  border-color: #1a73e8 !important;
-  color: #1a73e8 !important;
+  color: #0f75bd !important;
 }
 
 *, *::before, *::after {
