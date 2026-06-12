@@ -211,7 +211,9 @@ function webnhanh_add_google_fonts() {
         'webnhanh-responsive',
         get_stylesheet_directory_uri() . '/assets/css/responsive.css',
         ['flatsome-main'],
-        '1.0.4'
+        file_exists(get_stylesheet_directory() . '/assets/css/responsive.css')
+            ? filemtime(get_stylesheet_directory() . '/assets/css/responsive.css')
+            : '1.0.4'
     );
 }
 add_action('wp_enqueue_scripts', 'webnhanh_add_google_fonts');
