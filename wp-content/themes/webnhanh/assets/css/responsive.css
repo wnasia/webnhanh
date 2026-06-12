@@ -8,25 +8,70 @@
    - xl: 1200px+      (desktop)
 ================================================ */
 
+/* ── WN BUTTON SYSTEM ── */
+.wn-btn {
+    display: inline-block;
+    padding: 10px 22px;
+    border-radius: 6px;
+    font-size: 15px;
+    font-weight: 600;
+    text-decoration: none;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    border: 2px solid transparent;
+}
+
+.wn-btn-orange {
+    background-color: #f0a500 !important;
+    border-color: #f0a500 !important;
+    color: #fff !important;
+}
+
+.wn-btn-orange:hover {
+    background-color: #d4920a !important;
+    border-color: #d4920a !important;
+    color: #fff !important;
+}
+
+.wn-btn-blue {
+    background-color: #0f75bd !important;
+    border-color: #0f75bd !important;
+    color: #fff !important;
+}
+
+.wn-btn-blue:hover {
+    background-color: #0c5f99 !important;
+    border-color: #0c5f99 !important;
+    color: #fff !important;
+}
+
+.wn-btn-ghost {
+    background-color: transparent !important;
+    background: transparent !important;
+    border: 2px solid #0f75bd !important;
+    color: #0f75bd !important;
+    box-shadow: none !important;
+}
+
+.wn-btn-ghost:hover {
+    background-color: #e8f0fe !important;
+    background: #e8f0fe !important;
+    border-color: #0f75bd !important;
+    color: #0f75bd !important;
+}
+
+.wn-btn-group {
+    display: flex;
+    gap: 12px;
+    align-items: center;
+    flex-wrap: wrap;
+    margin-top: 16px;
+}
+
 /* ── GLOBAL: prevent horizontal overflow ── */
 html, body {
   overflow-x: hidden;
   max-width: 100%;
-}
-
-/* ── HERO: button "Xem bảng giá" — ghost style ── */
-.wn-btn.wn-btn-ghost,
-.wn-btn.wn-btn-blue.wn-btn-ghost {
-  background-color: transparent !important;
-  border: 2px solid #0f75bd !important;
-  color: #0f75bd !important;
-  transition: background-color 0.2s ease, border-color 0.2s ease, color 0.2s ease;
-}
-
-.wn-btn.wn-btn-ghost:hover,
-.wn-btn.wn-btn-blue.wn-btn-ghost:hover {
-  background-color: #e8f0fe !important;
-  color: #0f75bd !important;
 }
 
 *, *::before, *::after {
@@ -51,8 +96,7 @@ img, video, iframe, embed, object, svg {
 @media (max-width: 767px) {
   /* Exclude .circle buttons — they need equal W×H, not min-height stretch */
   a.button:not(.circle), .button:not(.circle), button:not(.circle),
-  input[type="submit"], input[type="button"],
-  .wn-btn, .wn-btn-blue, .wn-btn-orange {
+  input[type="submit"], input[type="button"] {
     min-height: 44px;
     min-width: 44px;
     display: inline-flex;
@@ -144,7 +188,7 @@ img, video, iframe, embed, object, svg {
     align-items: stretch !important;
     gap: 10px !important;
   }
-  .wn-btn, .wn-btn-blue, .wn-btn-orange {
+  .wn-btn {
     width: 100% !important;
     text-align: center !important;
     padding: 12px 16px !important;
