@@ -60,6 +60,23 @@
     color: #0f75bd !important;
 }
 
+.wn-btn-ghost-blue {
+    background: transparent !important;
+    border: 2px solid #0f75bd !important;
+    color: #0f75bd !important;
+}
+.wn-btn-ghost-blue:hover {
+    background: #e8f0fe !important;
+}
+.wn-btn-ghost-orange {
+    background: transparent !important;
+    border: 2px solid #f0a500 !important;
+    color: #f0a500 !important;
+}
+.wn-btn-ghost-orange:hover {
+    background: #fff8e1 !important;
+}
+
 .wn-btn-group {
     display: flex;
     gap: 12px;
