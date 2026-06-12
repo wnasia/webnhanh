@@ -45,7 +45,7 @@
     color: #fff !important;
 }
 
-.wn-btn-ghost {
+.wn-btn.wn-btn-ghost {
     background-color: transparent !important;
     background: transparent !important;
     border: 2px solid #0f75bd !important;
@@ -53,7 +53,7 @@
     box-shadow: none !important;
 }
 
-.wn-btn-ghost:hover {
+.wn-btn.wn-btn-ghost:hover {
     background-color: #e8f0fe !important;
     background: #e8f0fe !important;
     border-color: #0f75bd !important;
