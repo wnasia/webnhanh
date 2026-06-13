@@ -219,15 +219,16 @@ function webnhanh_add_google_fonts() {
 add_action('wp_enqueue_scripts', 'webnhanh_add_google_fonts');
 
 
-function webnhanh_enqueue_fontawesome() {
-    wp_enqueue_style(
-        'font-awesome-6',
-        'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css',
-        array(),
-        '6.5.1'
-    );
+// Font Awesome đã được thay bằng SVG inline — đảm bảo không nguồn nào load lại
+function webnhanh_dequeue_fontawesome() {
+    wp_dequeue_style('font-awesome');
+    wp_dequeue_style('fontawesome');
+    wp_dequeue_style('font-awesome-6');
+    wp_deregister_style('font-awesome');
+    wp_deregister_style('fontawesome');
+    wp_deregister_style('font-awesome-6');
 }
-add_action('wp_enqueue_scripts', 'webnhanh_enqueue_fontawesome');
+add_action('wp_enqueue_scripts', 'webnhanh_dequeue_fontawesome', 100);
 
 
 /** AnDuc blog-only hooks (v7: Footer2 as sidebar, wide 1360, title 22px) */
